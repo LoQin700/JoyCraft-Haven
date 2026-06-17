@@ -19,8 +19,8 @@
       ],
       "settings": {
         "color_scheme": "",
-        "color_scheme_menu": "",
-        "header_design": "logo-center-menu-left",
+        "color_scheme_menu": "default",
+        "header_design": "logo-center__2l",
         "container": "container-fluid",
         "sticky_header": "on_scroll_up",
         "transparent_on_top": false,
