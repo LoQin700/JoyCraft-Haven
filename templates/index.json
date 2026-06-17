@@ -40,10 +40,40 @@
             "footer_link": "",
             "enable_preload_image": false
           }
+        },
+        "slider_item_ync8D7": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/20260613030038.jpg",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "shopify://collections/all",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "The ReCotton Tee",
+            "footer_button": "Shop Now",
+            "footer_link": "",
+            "enable_preload_image": false
+          }
         }
       },
       "block_order": [
-        "1621243260e1af0c20-0"
+        "1621243260e1af0c20-0",
+        "slider_item_ync8D7"
       ],
       "settings": {
         "container": "w-full",
