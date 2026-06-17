@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "1621243260e1af0c20": {
@@ -6,6 +15,7 @@
         "1621243260e1af0c20-0": {
           "type": "slider_item",
           "settings": {
+            "background": "shopify://shop_images/20260613030205.jpg",
             "content_in_container": false,
             "content_position": "left middle",
             "text_alignment": "left",
@@ -16,83 +26,34 @@
             "description": "",
             "image_link": "",
             "button_text": "Shop Now",
+            "button_link": "",
             "button_style": "sf__btn-secondary",
             "button_size": "",
             "second_button_text": "",
             "second_button_link": "",
             "second_button_style": "m-button--primary",
             "second_button_size": "",
-            "show_footer": true,
+            "show_footer": false,
             "footer_alignment": "end",
             "footer_text": "The ReCotton Tee",
-            "footer_button": "Shop Now"
-          }
-        },
-        "1621243260e1af0c20-1": {
-          "type": "slider_item",
-          "settings": {
-            "content_in_container": false,
-            "content_position": "left middle",
-            "text_alignment": "left",
-            "text_size": "large",
-            "text_color": "black",
-            "subheading": "New Arrivals",
-            "title": "Responsible<br>\nDenim Lab",
-            "description": "",
-            "image_link": "",
-            "button_text": "Shop Now",
-            "button_style": "sf__btn-secondary",
-            "button_size": "",
-            "second_button_text": "",
-            "second_button_link": "",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": true,
-            "footer_alignment": "end",
-            "footer_text": "The ReCotton Tee",
-            "footer_button": "Shop Now"
-          }
-        },
-        "1621243260e1af0c20-2": {
-          "type": "slider_item",
-          "settings": {
-            "content_in_container": false,
-            "content_position": "left middle",
-            "text_alignment": "left",
-            "text_size": "large",
-            "text_color": "black",
-            "subheading": "New Arrivals",
-            "title": "Ultimate Winter<br>\nWarmer",
-            "description": "",
-            "image_link": "",
-            "button_text": "Shop Now",
-            "button_style": "sf__btn-secondary",
-            "button_size": "",
-            "second_button_text": "",
-            "second_button_link": "",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": true,
-            "footer_alignment": "end",
-            "footer_text": "The ReCotton Tee",
-            "footer_button": "Shop Now"
+            "footer_button": "Shop Now",
+            "footer_link": "",
+            "enable_preload_image": false
           }
         }
       },
       "block_order": [
-        "1621243260e1af0c20-0",
-        "1621243260e1af0c20-1",
-        "1621243260e1af0c20-2"
+        "1621243260e1af0c20-0"
       ],
       "settings": {
         "container": "w-full",
-        "slideshow_height": "adapt",
+        "slideshow_height": "large",
         "show_overlay": false,
         "dots_position": "right",
         "dots_color": "dark",
         "show_dots": true,
         "show_arrows": false,
-        "autorotate": true,
+        "autorotate": false,
         "autorotate_speed": 4,
         "use_content_above": false,
         "custom_class": "sf-home__slideshow",
@@ -105,30 +66,35 @@
         "65e38235-f03b-43c9-8590-38c9c656e51c": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Glasses"
           }
         },
         "694c01c9-a95f-4c09-9cf0-ec75f0131e98": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Knit Wears"
           }
         },
         "16225316461d1cff80-1": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Summer Bags"
           }
         },
         "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Sneakers"
           }
         },
         "12985deb-0775-45ce-80f6-6be7f3150a91": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Accessories"
           }
         }
@@ -186,13 +152,15 @@
         "162251092958fcda7c-0": {
           "type": "tab",
           "settings": {
-            "title": "best sellers"
+            "title": "best sellers",
+            "collection": ""
           }
         },
         "162251092958fcda7c-1": {
           "type": "tab",
           "settings": {
-            "title": "new arrivals"
+            "title": "new arrivals",
+            "collection": ""
           }
         }
       },
@@ -245,7 +213,8 @@
             "width": "50%",
             "alignment": "center",
             "block_custom_class": "",
-            "animations": "zoom-fade"
+            "animations": "zoom-fade",
+            "enable_preload_image": false
           }
         },
         "5c5877d5-05b2-4a50-81e3-78c3f6d0d833": {
@@ -257,6 +226,7 @@
             "content_alignment": "center",
             "text_size": "medium",
             "text_color": "black",
+            "link": "",
             "title": "The ReLeather Beige<br> Tennis Shoe",
             "subtitle": "New collection",
             "description": "",
@@ -266,7 +236,8 @@
             "button_fixed": true,
             "use_content_above": true,
             "block_custom_class": "",
-            "animations": "inherit"
+            "animations": "inherit",
+            "enable_preload_image": false
           }
         }
       },
@@ -296,6 +267,7 @@
         "use_scroll_mobile": false,
         "padding_top": 90,
         "padding_bottom": 0,
+        "enable_preload_image": false,
         "custom_class": "sf-custom--collection-banner"
       }
     },
@@ -446,6 +418,7 @@
         "collection_Yy3bMf": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "heading": "Sweaters & Cardigans",
             "heading_size": "h4",
             "text": "<p>This snuggly soft Cloud Relaxed Cardigan serves a relaxed fit, with saddle shoulders—where the armhole seams curve towards the neckline so that the sleeve seamlessly hugs your shoulder</p>"
@@ -454,6 +427,7 @@
         "collection_EhyPJ6": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "heading": "The Bomber Jackets",
             "heading_size": "h4",
             "text": "<p>This snuggly soft Cloud Relaxed Cardigan serves a relaxed fit, with saddle shoulders—where the armhole seams curve towards the neckline so that the sleeve seamlessly hugs your shoulder</p>"
@@ -462,6 +436,7 @@
         "collection_PEi4at": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "heading": "Corduroy Shirts",
             "heading_size": "h4",
             "text": "<p>This snuggly soft Cloud Relaxed Cardigan serves a relaxed fit, with saddle shoulders—where the armhole seams curve towards the neckline so that the sleeve seamlessly hugs your shoulder</p>"
@@ -615,6 +590,7 @@
         "use_scroll_mobile": false,
         "padding_top": 0,
         "padding_bottom": 0,
+        "enable_preload_image": false,
         "custom_class": ""
       }
     },
@@ -633,6 +609,7 @@
             "text_size": "large",
             "text_color": "inherit",
             "button_label": "Shop Now",
+            "button_link": "",
             "button_style": "m-button--secondary",
             "button_size": "",
             "block_custom_class": "",
@@ -662,6 +639,7 @@
         "use_scroll_mobile": false,
         "padding_top": 100,
         "padding_bottom": 100,
+        "enable_preload_image": false,
         "custom_class": ""
       }
     },
@@ -689,7 +667,8 @@
             "left_5": 0,
             "product_5": "",
             "block_custom_class": "m-block-first",
-            "animations": "inherit"
+            "animations": "inherit",
+            "enable_preload_image": false
           }
         },
         "lookbook_hDUCNi": {
@@ -713,7 +692,8 @@
             "left_5": 0,
             "product_5": "",
             "block_custom_class": "",
-            "animations": "inherit"
+            "animations": "inherit",
+            "enable_preload_image": false
           }
         }
       },
@@ -740,6 +720,7 @@
         "use_scroll_mobile": false,
         "padding_top": 0,
         "padding_bottom": 0,
+        "enable_preload_image": false,
         "custom_class": ""
       }
     },
@@ -758,6 +739,7 @@
             "text_size": "medium",
             "text_color": "inherit",
             "button_label": "Shop Collection",
+            "button_link": "",
             "button_style": "m-button--link",
             "button_size": "",
             "block_custom_class": "",
@@ -787,6 +769,7 @@
         "use_scroll_mobile": false,
         "padding_top": 100,
         "padding_bottom": 0,
+        "enable_preload_image": false,
         "custom_class": ""
       }
     },
@@ -796,36 +779,42 @@
         "collection_block_jRJk76": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Top"
           }
         },
         "collection_block_F6rPLj": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Shirts"
           }
         },
         "collection_block_rFmir7": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Sunglasses"
           }
         },
         "collection_block_YXwFjp": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Shorts"
           }
         },
         "collection_block_pYgiyF": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Leather Bags"
           }
         },
         "collection_block_i7CRfm": {
           "type": "collection_block",
           "settings": {
+            "collection": "",
             "title": "Sandals"
           }
         }
@@ -913,6 +902,7 @@
             "text_size": "large",
             "text_color": "inherit",
             "button_label": "Shop Mix & Match",
+            "button_link": "",
             "button_style": "m-button--secondary",
             "button_size": "",
             "block_custom_class": "",
@@ -946,6 +936,7 @@
         "use_scroll_mobile": false,
         "padding_top": 100,
         "padding_bottom": 100,
+        "enable_preload_image": false,
         "custom_class": ""
       }
     },
@@ -970,7 +961,8 @@
             "description": "<p>Always getting compliments from family, friends, and strangers. 🤗 🙌</p>",
             "footer": "<p>Alyssa A.</p>",
             "image_text": "",
-            "image_link": ""
+            "image_link": "",
+            "product": ""
           }
         },
         "testimonial_X8q9A4": {
@@ -980,7 +972,8 @@
             "description": "<p>Hands down one of the best shirts I’ve ever owned.  Fits great, feels amazing, seems to stay cool and is somewhat water resistant. </p>",
             "footer": "<p>Ben B.</p>",
             "image_text": "",
-            "image_link": ""
+            "image_link": "",
+            "product": ""
           }
         },
         "testimonial_ef4Etp": {
@@ -990,7 +983,8 @@
             "description": "<p>Was I in Hawaii?! No. Did I feel like I was in Hawaii?! No, because it’s snowing outside. But, would I wear this in Hawaii ❤️</p>",
             "footer": "<p>Dean D. US</p>",
             "image_text": "",
-            "image_link": ""
+            "image_link": "",
+            "product": ""
           }
         },
         "testimonial_bUi88K": {
@@ -1000,7 +994,8 @@
             "description": "<p>Always getting compliments from family, friends, and strangers. 🤗 🙌</p>",
             "footer": "<p>John D.</p>",
             "image_text": "",
-            "image_link": ""
+            "image_link": "",
+            "product": ""
           }
         },
         "testimonial_NMt6Em": {
@@ -1010,7 +1005,8 @@
             "description": "<p>Hands down one of the best shirts I’ve ever owned.  Fits great, feels amazing, seems to stay cool and is somewhat water resistant. </p>",
             "footer": "<p>Dean J.</p>",
             "image_text": "",
-            "image_link": ""
+            "image_link": "",
+            "product": ""
           }
         }
       },
