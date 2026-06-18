@@ -188,6 +188,61 @@
         "animations": "inherit"
       }
     },
+    "featured_collection_banner_V3hNFe": {
+      "type": "featured-collection-banner",
+      "blocks": {
+        "image_card_LTfBkj": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "",
+            "content_position": "center_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "image": "shopify://shop_images/O1CN01nYnguC1DxfDkqPjsA__2219643570283-0-cib_1_799cd7a7-0f0f-4869-8adf-ccc3ad4943f2.jpg",
+            "link": "",
+            "subtitle": "",
+            "title": "Image card",
+            "button_label": "Button label",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_LTfBkj"
+      ],
+      "name": "Product list banner",
+      "settings": {
+        "heading": "Featured banner",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "collection": "promo-collection",
+        "product_to_show": 8,
+        "items_per_row": 3,
+        "products_per_view_mobile": "1.2",
+        "enable_product_scroll": true,
+        "item_gap": 30,
+        "row_gap": 30,
+        "pcard_layout": "",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "hide_title": false,
+        "use_scroll_mobile": false,
+        "item_gap_mobile": 16,
+        "row_gap_mobile": 16,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "162251092958fcda7c": {
       "type": "product-tabs",
       "blocks": {
@@ -284,60 +339,6 @@
         "mobile_disable_slider": false,
         "use_scroll_mobile": true,
         "item_gap_mobile": 16,
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "featured_collection_banner_V3hNFe": {
-      "type": "featured-collection-banner",
-      "blocks": {
-        "image_card_LTfBkj": {
-          "type": "image_card",
-          "settings": {
-            "color_scheme": "",
-            "content_position": "center_center",
-            "content_alignment": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "link": "",
-            "subtitle": "",
-            "title": "Image card",
-            "button_label": "Button label",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "enable_preload_image": false
-          }
-        }
-      },
-      "block_order": [
-        "image_card_LTfBkj"
-      ],
-      "name": "Product list banner",
-      "settings": {
-        "heading": "Featured banner",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "color_scheme": "",
-        "container": "container-fluid",
-        "collection": "",
-        "product_to_show": 8,
-        "items_per_row": 3,
-        "products_per_view_mobile": "1.2",
-        "enable_product_scroll": true,
-        "item_gap": 30,
-        "row_gap": 30,
-        "pcard_layout": "",
-        "pcard_image_ratio": "",
-        "show_vendor": false,
-        "hide_title": false,
-        "use_scroll_mobile": false,
-        "item_gap_mobile": 16,
-        "row_gap_mobile": 16,
         "padding_top": 50,
         "padding_bottom": 50,
         "custom_class": "",
@@ -1473,9 +1474,9 @@
     "1621243260e1af0c20",
     "scrolling_promotion_q8W9zF",
     "featured_collection_fyW4ey",
+    "featured_collection_banner_V3hNFe",
     "162251092958fcda7c",
     "featured_collection_XJFrpg",
-    "featured_collection_banner_V3hNFe",
     "collection_list_tjXYY7",
     "custom_content_CrCarK",
     "7ea56e8d-5794-4708-8812-8ee9604a3a21",
