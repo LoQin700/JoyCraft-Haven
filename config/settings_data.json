@@ -246,7 +246,7 @@
           "outline_button_label": "#8B73FF",
           "button_hover": "#8B73FF",
           "button_text_hover": "#ffffff",
-          "price_sale": "#e84e4e",
+          "price_sale": "#8B73FF",
           "price_regular": "#000000",
           "form_field": "#ffffff",
           "form_field_label": "#000000",
