@@ -216,7 +216,7 @@
       ],
       "name": "Product list banner",
       "settings": {
-        "heading": "Featured banner",
+        "heading": "Today's New",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
