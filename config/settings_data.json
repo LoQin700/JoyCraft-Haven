@@ -26,7 +26,7 @@
     "spacing_sections": 0,
     "spacing_sections_mobile": 0,
     "animations": "fade-in-up",
-    "pcard_layout": "1",
+    "pcard_layout": "joycraft",
     "pcard_alignment": "left",
     "pcard_image_ratio": "3/4",
     "show_quickview_button": false,
@@ -186,7 +186,7 @@
       },
       "badge-sale": {
         "settings": {
-          "background": "#CF4F7A",
+          "background": "#cf4f7a",
           "background_secondary": "#f5f5f5",
           "background_gradient": "",
           "text": "#ffffff",
