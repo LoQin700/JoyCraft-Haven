@@ -308,6 +308,139 @@
         "animations": "inherit"
       }
     },
+    "custom_content_CrCarK": {
+      "type": "custom-content",
+      "blocks": {
+        "image_card_tcjLbk": {
+          "type": "image_card",
+          "settings": {
+            "width": "25%",
+            "color_scheme": "",
+            "content_position": "top_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "link": "",
+            "title": "Image card",
+            "subtitle": "",
+            "description": "",
+            "button_label": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "button_fixed": false,
+            "use_content_above": false,
+            "block_custom_class": "",
+            "animations": "inherit",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_tcjLbk"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Custom content",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false,
+        "custom_class": ""
+      }
+    },
+    "collection_list_tjXYY7": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_block_jRJk76": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "simulation-business",
+            "title": "",
+            "item_image": "shopify://shop_images/O1CN01XddSX91DxfDkqR59x__2219643570283-0-cib.jpg"
+          }
+        },
+        "collection_block_rFmir7": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "festival-scenes",
+            "title": "",
+            "item_image": "shopify://shop_images/O1CN01G8c94V1DxfDkhNGvu__2219643570283-0-cib.jpg"
+          }
+        },
+        "collection_block_YXwFjp": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "chinese-aesthetic",
+            "title": "",
+            "item_image": "shopify://shop_images/O1CN01zWHxpN1PcqbvWVrGj__2216972861862-0-cib.jpg"
+          }
+        },
+        "collection_block_pYgiyF": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "scenery-streetscape",
+            "title": "",
+            "item_image": "shopify://shop_images/O1CN01nYnguC1DxfDkqPjsA__2219643570283-0-cib_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_jRJk76",
+        "collection_block_rFmir7",
+        "collection_block_YXwFjp",
+        "collection_block_pYgiyF"
+      ],
+      "custom_css": [
+        ".m-collection-card__image {max-width: 340px; margin: 0 auto;}",
+        ".m-collection-card__title {font-size: 18px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "layout": "grid",
+        "expanded": true,
+        "card_style": "inside",
+        "text_alignment": "center",
+        "hover_effect": "scaling-up",
+        "show_product_count": false,
+        "count_inline_title": false,
+        "image_rounded": false,
+        "items_per_row": 4,
+        "item_gap": 0,
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": false,
+        "mobile_gap": 16,
+        "hidden_slide_control_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
       "type": "custom-content",
       "blocks": {
@@ -878,101 +1011,6 @@
         "custom_class": ""
       }
     },
-    "collection_list_tjXYY7": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_block_jRJk76": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Top"
-          }
-        },
-        "collection_block_F6rPLj": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Shirts"
-          }
-        },
-        "collection_block_rFmir7": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Sunglasses"
-          }
-        },
-        "collection_block_YXwFjp": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Shorts"
-          }
-        },
-        "collection_block_pYgiyF": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Leather Bags"
-          }
-        },
-        "collection_block_i7CRfm": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "title": "Sandals"
-          }
-        }
-      },
-      "block_order": [
-        "collection_block_jRJk76",
-        "collection_block_F6rPLj",
-        "collection_block_rFmir7",
-        "collection_block_YXwFjp",
-        "collection_block_pYgiyF",
-        "collection_block_i7CRfm"
-      ],
-      "custom_css": [
-        ".m-collection-list {--mobile-column-width: 40vw;}",
-        ".m-collection-card__image {max-width: 140px; margin: 0 auto;}",
-        ".m-collection-card__title {font-size: 18px;}"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "m-button--primary",
-        "header_alignment": "center",
-        "color_scheme": "",
-        "container": "container-fluid",
-        "layout": "grid",
-        "expanded": true,
-        "card_style": "standard",
-        "text_alignment": "center",
-        "hover_effect": "scaling-up",
-        "show_product_count": true,
-        "count_inline_title": true,
-        "image_rounded": true,
-        "items_per_row": 6,
-        "item_gap": 0,
-        "enable_slider": false,
-        "show_pagination": false,
-        "show_navigation": false,
-        "autorotate": false,
-        "autorotate_speed": 5,
-        "mobile_disable_slider": false,
-        "use_scroll_mobile": true,
-        "mobile_gap": 16,
-        "hidden_slide_control_mobile": false,
-        "padding_top": 80,
-        "padding_bottom": 0,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "custom_content_KiFzqG": {
       "type": "custom-content",
       "blocks": {
@@ -1324,6 +1362,8 @@
     "162251092958fcda7c",
     "featured_collection_XJFrpg",
     "featured_collection_banner_V3hNFe",
+    "collection_list_tjXYY7",
+    "custom_content_CrCarK",
     "7ea56e8d-5794-4708-8812-8ee9604a3a21",
     "lookbook_MB4Mr4",
     "scrolling_promotion_jjrFyf",
@@ -1333,7 +1373,6 @@
     "custom_content_f3reLw",
     "custom_content_btgYN3",
     "custom_content_hh6hmV",
-    "collection_list_tjXYY7",
     "custom_content_KiFzqG",
     "testimonials_pnyUnX",
     "gallery_LXcceh",
