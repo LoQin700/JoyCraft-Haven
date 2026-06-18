@@ -157,7 +157,7 @@
         "subheading": "",
         "description": "",
         "header_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "footer",
         "container": "container-fluid",
         "collection": "promo-collection",
         "enable_flashsale": false,
