@@ -268,6 +268,46 @@
         "animations": "inherit"
       }
     },
+    "featured_collection_fyW4ey": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "collection": "",
+        "enable_flashsale": false,
+        "show_countdown": false,
+        "product_to_show": 8,
+        "items_per_row": 4,
+        "item_gap": 30,
+        "pcard_layout": "",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "hide_title": false,
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "show_button_on_header": false,
+        "button_type": "link",
+        "button_text": "Shop more",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "infinite_load": false,
+        "max_page_load": 3,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
       "type": "custom-content",
       "blocks": {
@@ -1280,6 +1320,7 @@
   "order": [
     "1621243260e1af0c20",
     "scrolling_promotion_q8W9zF",
+    "featured_collection_fyW4ey",
     "162251092958fcda7c",
     "featured_collection_XJFrpg",
     "featured_collection_banner_V3hNFe",
