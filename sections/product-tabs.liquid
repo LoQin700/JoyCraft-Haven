@@ -138,6 +138,18 @@
     --column-gap-mobile: {{ section.settings.item_gap_mobile }}px;
     --row-gap: {{ section.settings.item_gap | plus: 10 }}px;
     --items: {{ items_per_row }};
+    --product-tabs-font-size: {{ section.settings.tab_font_size }}px;
+    --product-tabs-font-size-mobile: {{ section.settings.tab_font_size_mobile }}px;
+    {%- if section.settings.tab_active_color != blank %}
+      --product-tabs-active-color: {{ section.settings.tab_active_color }};
+    {%- endif %}
+    {%- if section.settings.tab_inactive_color != blank %}
+      --product-tabs-inactive-color: {{ section.settings.tab_inactive_color }};
+      --product-tabs-inactive-opacity: 1;
+    {%- endif %}
+    {%- if section.settings.tab_underline_color != blank %}
+      --product-tabs-underline-color: {{ section.settings.tab_underline_color }};
+    {%- endif %}
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
@@ -469,6 +481,45 @@
           "label": "Title with select"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Tab style"
+    },
+    {
+      "type": "range",
+      "id": "tab_font_size",
+      "label": "PC tab 字号",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "tab_font_size_mobile",
+      "label": "Mobile tab 字号",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "tab_active_color",
+      "label": "Active tab 颜色"
+    },
+    {
+      "type": "color",
+      "id": "tab_inactive_color",
+      "label": "Inactive tab 颜色"
+    },
+    {
+      "type": "color",
+      "id": "tab_underline_color",
+      "label": "Tab 下划线颜色"
     },
     {
       "type": "range",

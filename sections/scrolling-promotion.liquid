@@ -114,7 +114,10 @@
                   </span>
                 {% endif %}
                 {% if block.settings.text != blank %}
-                  <div class="m-promotion__text" style="--text-size: {{ block.settings.text_size }}px;">
+                  <div
+                    class="m-promotion__text{% if block.settings.text_bold %} is-bold{% endif %}{% if block.settings.text_italic %} is-italic{% endif %}"
+                    style="--text-size: {{ block.settings.text_size }}px;"
+                  >
                     {{ block.settings.text }}
                   </div>
                 {% endif %}
@@ -381,6 +384,18 @@
           "unit": "px",
           "default": 30,
           "step": 2
+        },
+        {
+          "type": "checkbox",
+          "id": "text_bold",
+          "label": "文字加粗",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "text_italic",
+          "label": "文字斜体",
+          "default": false
         },
         {
           "type": "url",
