@@ -265,9 +265,7 @@
         "162251092958fcda7c-0",
         "162251092958fcda7c-1"
       ],
-      "custom_css": [
-        ".m-section__header {--m-section-header-spacing-bottom: 60px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -279,10 +277,10 @@
         "tab_header": "horizontal",
         "tab_font_size": 26,
         "tab_font_size_mobile": 16,
-        "tab_active_color": "",
-        "tab_inactive_color": "",
-        "tab_underline_color": "",
-        "limit": 17,
+        "tab_active_color": "#8B73FF",
+        "tab_inactive_color": "#D9C4FD",
+        "tab_underline_color": "#8B73FF",
+        "limit": 15,
         "show_button": true,
         "button_type": "link",
         "button_label": "Shop All Products",
@@ -299,8 +297,8 @@
         "mobile_disable_slider": false,
         "use_scroll_mobile": true,
         "item_gap_mobile": 16,
-        "padding_top": 100,
-        "padding_bottom": 10,
+        "padding_top": 50,
+        "padding_bottom": 50,
         "custom_class": "sf-home__product-tab",
         "animations": "inherit"
       }
