@@ -98,25 +98,53 @@
           "settings": {
             "custom_svg": "",
             "icon_size": "medium",
-            "text": "Welcome to our store",
+            "text": "Buy 5 stickers&10% Off",
             "text_size": 30,
+            "text_bold": true,
+            "text_italic": true,
+            "text_link": ""
+          }
+        },
+        "announcement_dYa9xH": {
+          "type": "announcement",
+          "settings": {
+            "custom_svg": "",
+            "icon_size": "medium",
+            "text": "Buy 10 Stickers&20% Off",
+            "text_size": 30,
+            "text_bold": true,
+            "text_italic": false,
+            "text_link": ""
+          }
+        },
+        "announcement_EbRW6E": {
+          "type": "announcement",
+          "settings": {
+            "custom_svg": "",
+            "icon_size": "medium",
+            "text": "Buy 15 Stickers&30% Off",
+            "text_size": 30,
+            "text_bold": true,
+            "text_italic": true,
             "text_link": ""
           }
         }
       },
       "block_order": [
-        "announcement_KVaUUA"
+        "announcement_KVaUUA",
+        "announcement_dYa9xH",
+        "announcement_EbRW6E"
       ],
       "name": "Scrolling promotion",
       "settings": {
         "container": "w-full",
         "direction": "left",
         "speed": 30,
-        "item_gap": 50,
+        "item_gap": 58,
         "item_gap_mobile": 30,
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 40,
+        "color_scheme": "badge-sale",
+        "padding_top": 30,
+        "padding_bottom": 30,
         "custom_class": ""
       }
     },
@@ -194,6 +222,11 @@
         "container": "container-fluid",
         "color_scheme": "",
         "tab_header": "horizontal",
+        "tab_font_size": 18,
+        "tab_font_size_mobile": 16,
+        "tab_active_color": "",
+        "tab_inactive_color": "",
+        "tab_underline_color": "",
         "limit": 10,
         "show_button": true,
         "button_type": "link",
@@ -293,6 +326,9 @@
         "container": "container-fluid",
         "collection": "",
         "product_to_show": 8,
+        "items_per_row": 3,
+        "products_per_view_mobile": "1.2",
+        "enable_product_scroll": true,
         "item_gap": 30,
         "row_gap": 30,
         "pcard_layout": "",
@@ -660,6 +696,8 @@
             "icon_size": "medium",
             "text": "New Season Essential",
             "text_size": 42,
+            "text_bold": false,
+            "text_italic": false,
             "text_link": ""
           }
         },
@@ -677,6 +715,8 @@
             "icon_size": "medium",
             "text": "Purposefully Designed",
             "text_size": 42,
+            "text_bold": false,
+            "text_italic": false,
             "text_link": ""
           }
         },
@@ -694,6 +734,8 @@
             "icon_size": "medium",
             "text": "New Season Essential",
             "text_size": 42,
+            "text_bold": false,
+            "text_italic": false,
             "text_link": ""
           }
         }
