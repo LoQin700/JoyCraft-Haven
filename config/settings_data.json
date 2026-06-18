@@ -37,6 +37,7 @@
     "on_sale_badge": "show_percentage",
     "show_badge_sale": true,
     "show_vendor": false,
+    "pcard_title_line_clamp": "3",
     "article_show_date": false,
     "article_show_excerpt": true,
     "article_show_button": true,
