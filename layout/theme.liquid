@@ -67,6 +67,7 @@
       echo 'main.css' | asset_url | stylesheet_tag: preload: true
 
       render 'style-tags'
+      echo 'joycraft-product-card.css' | asset_url | stylesheet_tag
     -%}
 
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>

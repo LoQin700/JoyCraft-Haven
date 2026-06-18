@@ -144,7 +144,7 @@
         "item_gap_mobile": 30,
         "color_scheme": "badge-sale",
         "padding_top": 30,
-        "padding_bottom": 30,
+        "padding_bottom": 36,
         "custom_class": ""
       }
     },

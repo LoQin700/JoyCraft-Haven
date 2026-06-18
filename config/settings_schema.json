@@ -873,7 +873,11 @@
           {
             "value": "5",
             "label": "Style 5"
-          }
+          },
+        {
+          "value": "joycraft",
+          "label": "JoyCraft style"
+        }
         ]
       },
       {
