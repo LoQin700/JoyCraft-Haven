@@ -308,57 +308,6 @@
         "animations": "inherit"
       }
     },
-    "custom_content_CrCarK": {
-      "type": "custom-content",
-      "blocks": {
-        "image_card_tcjLbk": {
-          "type": "image_card",
-          "settings": {
-            "width": "25%",
-            "color_scheme": "",
-            "content_position": "top_center",
-            "content_alignment": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "link": "",
-            "title": "Image card",
-            "subtitle": "",
-            "description": "",
-            "button_label": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "button_fixed": false,
-            "use_content_above": false,
-            "block_custom_class": "",
-            "animations": "inherit",
-            "enable_preload_image": false
-          }
-        }
-      },
-      "block_order": [
-        "image_card_tcjLbk"
-      ],
-      "name": "Custom content",
-      "settings": {
-        "heading": "Custom content",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "enable_preload_image": false,
-        "custom_class": ""
-      }
-    },
     "collection_list_tjXYY7": {
       "type": "collection-list",
       "blocks": {
@@ -439,6 +388,129 @@
         "padding_bottom": 0,
         "custom_class": "",
         "animations": "inherit"
+      }
+    },
+    "custom_content_CrCarK": {
+      "type": "custom-content",
+      "blocks": {
+        "image_card_tcjLbk": {
+          "type": "image_card",
+          "settings": {
+            "width": "25%",
+            "color_scheme": "",
+            "content_position": "top_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "link": "",
+            "title": "Image card",
+            "subtitle": "",
+            "description": "",
+            "button_label": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "button_fixed": false,
+            "use_content_above": false,
+            "block_custom_class": "",
+            "animations": "inherit",
+            "enable_preload_image": false
+          }
+        },
+        "image_card_EHNKiP": {
+          "type": "image_card",
+          "settings": {
+            "width": "25%",
+            "color_scheme": "",
+            "content_position": "top_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "link": "",
+            "title": "Image card",
+            "subtitle": "",
+            "description": "",
+            "button_label": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "button_fixed": false,
+            "use_content_above": false,
+            "block_custom_class": "",
+            "animations": "inherit",
+            "enable_preload_image": false
+          }
+        },
+        "image_card_FipiDc": {
+          "type": "image_card",
+          "settings": {
+            "width": "25%",
+            "color_scheme": "",
+            "content_position": "top_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "link": "",
+            "title": "Image card",
+            "subtitle": "",
+            "description": "",
+            "button_label": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "button_fixed": false,
+            "use_content_above": false,
+            "block_custom_class": "",
+            "animations": "inherit",
+            "enable_preload_image": false
+          }
+        },
+        "image_card_T43f4W": {
+          "type": "image_card",
+          "settings": {
+            "width": "25%",
+            "color_scheme": "",
+            "content_position": "top_center",
+            "content_alignment": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "link": "",
+            "title": "Image card",
+            "subtitle": "",
+            "description": "",
+            "button_label": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "button_fixed": false,
+            "use_content_above": false,
+            "block_custom_class": "",
+            "animations": "inherit",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_tcjLbk",
+        "image_card_EHNKiP",
+        "image_card_FipiDc",
+        "image_card_T43f4W"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Custom content",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false,
+        "custom_class": ""
       }
     },
     "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
