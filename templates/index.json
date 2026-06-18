@@ -250,14 +250,14 @@
           "type": "tab",
           "settings": {
             "title": "best sellers",
-            "collection": ""
+            "collection": "simulation-business"
           }
         },
         "162251092958fcda7c-1": {
           "type": "tab",
           "settings": {
             "title": "new arrivals",
-            "collection": ""
+            "collection": "stickers"
           }
         }
       },
