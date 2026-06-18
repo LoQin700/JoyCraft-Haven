@@ -240,7 +240,7 @@
           "background_gradient": "",
           "text": "#8B73FF",
           "subtext": "#666666",
-          "heading_text": "#8B73FF",
+          "heading_text": "#000000",
           "button": "#000000",
           "button_label": "#ffffff",
           "outline_button_label": "#000000",
