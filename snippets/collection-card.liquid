@@ -54,13 +54,17 @@
 
 <style>
   .m-collection-card__image--controlled {
-    height: var(--collection-card-image-height);
     overflow: hidden;
     display: block;
   }
 
+  .m-collection-card__image--controlled:not([data-image-ratio="true"]) {
+    height: var(--collection-card-image-height);
+  }
+
   .m-collection-card__image--controlled[data-image-ratio="true"] {
     aspect-ratio: var(--collection-card-image-ratio);
+    height: auto;
   }
 
   .m-collection-card__image--controlled .m-hover-box__wrapper,
@@ -117,8 +121,12 @@
   }
 
   @media screen and (max-width: 767px) {
-    .m-collection-card__image--controlled {
+    .m-collection-card__image--controlled:not([data-image-ratio="true"]) {
       height: var(--collection-card-image-height-mobile);
+    }
+
+    .m-collection-card__image--controlled[data-image-ratio="true"] {
+      height: auto;
     }
 
     .m-collection-card--standard .m-collection-card__inner--controlled .m-collection-card__info,
@@ -132,9 +140,11 @@
   --collection-card-image-height: {{ card_image_height }}px;
   --collection-card-image-height-mobile: {{ card_image_height_mobile }}px;
   --collection-card-image-fit: {{ card_image_fit }};
-  {%- unless image_ratio_setting == 'adapt' -%}
+  {%- if image_rounded -%}
+    --collection-card-image-ratio: 1/1;
+  {%- elsif image_ratio_setting != 'adapt' -%}
     --collection-card-image-ratio: {{ image_ratio_setting }};
-  {%- endunless -%}
+  {%- endif -%}
 {%- endcapture -%}
 
 <div class="m:column{% if enable_slider %} swiper-slide{% endif %}">
@@ -153,7 +163,7 @@
             class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
             style="{{ image_control_style | strip }}"
-            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
+            {% if image_rounded or image_ratio_setting != 'adapt' %}data-image-ratio="true"{% endif %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -202,7 +212,7 @@
             class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
             style="{{ image_control_style | strip }}"
-            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
+            {% if image_rounded or image_ratio_setting != 'adapt' %}data-image-ratio="true"{% endif %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -237,7 +247,7 @@
             class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover and card_style != 'inside' %} {{ hover }}{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
             style="{{ image_control_style | strip }}"
-            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
+            {% if image_rounded or image_ratio_setting != 'adapt' %}data-image-ratio="true"{% endif %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -262,7 +272,7 @@
             class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover %} {{ hover }}{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
             style="{{ image_control_style | strip }}"
-            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
+            {% if image_rounded or image_ratio_setting != 'adapt' %}data-image-ratio="true"{% endif %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
