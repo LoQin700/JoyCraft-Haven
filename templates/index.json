@@ -234,7 +234,7 @@
         "collection": "promo-collection",
         "product_to_show": 8,
         "items_per_row": 3,
-        "products_per_view_mobile": "1.2",
+        "products_per_view_mobile": "2",
         "enable_product_scroll": true,
         "item_gap": 30,
         "row_gap": 30,
