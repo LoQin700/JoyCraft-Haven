@@ -160,9 +160,11 @@
     assign fetchpriority = 'high'
   endif
 
+  assign joycraft_mobile_bg = mobile_card_background | default: settings.joycraft_mobile_card_background
+
   assign product_card_style = ''
-  if settings.pcard_mobile_background != blank
-    assign product_card_style = product_card_style | append: '--mobile-product-card-bg: ' | append: settings.pcard_mobile_background | append: ';'
+  if joycraft_mobile_bg != blank
+    assign product_card_style = product_card_style | append: '--joycraft-mobile-card-bg: ' | append: joycraft_mobile_bg | append: ';'
   endif
   if animated
     assign product_card_style = product_card_style | append: '--animation-order: ' | append: index | append: ';'
@@ -178,8 +180,8 @@
   {% endif %}
   data-product-id="{{ product.id }}"
   data-sale-badge="{{ on_sale_badge }}"
-  {% if settings.pcard_mobile_background != blank %}
-    data-mobile-card-bg="{{ settings.pcard_mobile_background }}"
+  {% if joycraft_mobile_bg != blank %}
+    data-joycraft-mobile-bg="{{ joycraft_mobile_bg }}"
   {% endif %}
   {% if animated %}
     data-cascade
@@ -527,6 +529,16 @@
             </div>
           </div>
         {%- endif -%}
+      {%- endif -%}
+      {%- if show_cart_button -%}
+        <div class="m-product-card__joycraft-add-mobile">
+          {% render 'product-card-quick-add-btn',
+            product: product,
+            quick_add_text: 'Add',
+            button_style: 'primary',
+            section: section
+          %}
+        </div>
       {%- endif -%}
     </div>
 
