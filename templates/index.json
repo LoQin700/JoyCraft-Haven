@@ -677,22 +677,12 @@
             "open": false
           }
         },
-        "item_zbCa3M": {
-          "type": "item",
-          "settings": {
-            "header": "",
-            "text_size": "h5",
-            "content": "",
-            "content_page": "",
-            "open": false
-          }
-        },
         "item_9MimeP": {
           "type": "item",
           "settings": {
-            "header": "",
+            "header": "What is your return policy?",
             "text_size": "h5",
-            "content": "",
+            "content": "<p>JoyCraft Haven accepts returns on most products. If you aren't completely satisfied with your purchase, you can request a return within 7 days of receiving your order. Please ensure the item is unused, in its original packaging, and still has all its original tags.<br/>⚠️ Please note: Customized products and Mystery Boxes are final sale and non-refundable.</p>",
             "content_page": "",
             "open": false
           }
@@ -700,9 +690,9 @@
         "item_BxNi6M": {
           "type": "item",
           "settings": {
-            "header": "",
+            "header": "How do I track my package?",
             "text_size": "h5",
-            "content": "",
+            "content": "<p>You can easily track your order using any of these methods:<br/><br/>Click the \"Track Your Package\" link in the footer at the bottom of our website.<br/><br/>Log into your account and view the tracking number on the \"My Orders\" page, or find it in your shipping confirmation email.<br/><br/>Enter your tracking number on our tracking page to view real-time delivery updates.</p>",
             "content_page": "",
             "open": false
           }
@@ -710,9 +700,9 @@
         "item_iKQADU": {
           "type": "item",
           "settings": {
-            "header": "",
+            "header": "How can I participate in promotions or get discounts?",
             "text_size": "h5",
-            "content": "",
+            "content": "<p>It's very easy! Simply add qualifying items to your cart. Once your order total meets the required amount, the discount will be automatically applied at checkout—no promo code needed. ✨</p>",
             "content_page": "",
             "open": false
           }
@@ -721,7 +711,6 @@
       "block_order": [
         "item_MfkmQz",
         "item_i6CRBq",
-        "item_zbCa3M",
         "item_9MimeP",
         "item_BxNi6M",
         "item_iKQADU"
