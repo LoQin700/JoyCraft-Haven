@@ -68,23 +68,9 @@
 
   for block in section.blocks
     if forloop.first and block.type == 'collection_block'
-      assign first_collection = collections[block.settings.collection]
-      assign first_image = block.settings.item_image
-      if first_image == blank and first_collection != blank
-        assign first_image = first_collection.featured_image
-      endif
-      if first_image == blank and first_collection != blank and first_collection.products.first != blank
-        assign first_image = first_collection.products.first.featured_image
-      endif
-      if first_image != blank
-        assign first_ratio = first_image.aspect_ratio
-      endif
+      assign first_ratio = block.settings.item_image.aspect_ratio
     endif
   endfor
-
-  if section.settings.image_aspect_ratio != blank and section.settings.image_aspect_ratio != 'adapt'
-    assign first_ratio = section.settings.image_aspect_ratio
-  endif
 
   if section.settings.image_rounded
     assign first_ratio = '1'
@@ -170,20 +156,6 @@
           </a>
         </div>
       {% endif %}
-      {% if enable_slider and expanded %}
-        {% if section.settings.show_pagination or section.settings.show_navigation %}
-          <div class="m-collection-list__controls m-collection-list__controls--top">
-            {% render 'slider-controls', 
-              extra_classes: slider_control_classes, 
-              position: slider_controls_position,
-              show_nav: show_navigation, 
-              show_pagination: show_pagination, 
-              pagination_class: 'm-dot-circle m-dot-circle--dark', 
-              pagination_type: 'fraction'
-            %}
-          </div>
-        {% endif %}
-      {% endif %}
     </div><!-- .m-section__header -->
     {% if section.settings.layout != 'left-side' %}</div>{% endif %}
   {% endif %}
@@ -199,28 +171,16 @@
                 {% liquid
                   assign collection = collections[block.settings.collection]
                   assign default_label = 'homepage.onboarding.collection_title' | t
-                  assign collection_image = block.settings.item_image
-                  if collection_image == blank and collection != blank
-                    assign collection_image = collection.featured_image
-                  endif
-                  if collection_image == blank and collection != blank and collection.products.first != blank
-                    assign first_collection_product = collection.products.first
-                    assign collection_image = first_collection_product.featured_image
-                  endif
                 %}
                 {% render 'collection-card', 
                   section: section, 
                   collection: collection, 
                   card_style: card_style, 
                   text_alignment: section.settings.text_alignment, 
-                  image: collection_image, 
+                  image: block.settings.item_image, 
                   show_product_count: section.settings.show_product_count, 
                   enable_slider: enable_slider, 
                   image_rounded: section.settings.image_rounded, 
-                  image_aspect_ratio: section.settings.image_aspect_ratio,
-                  image_height: section.settings.image_height,
-                  image_height_mobile: section.settings.image_height_mobile,
-                  image_object_fit: section.settings.image_object_fit,
                   hover_effect: section.settings.hover_effect, 
                   title: block.settings.title,
                   index: forloop.index,
@@ -258,7 +218,7 @@
           {% endfor %}
         </div>
       </div>
-      {% if enable_slider and expanded == false %}
+      {% if enable_slider %}
         {% if section.settings.show_pagination or section.settings.show_navigation %}
           <div class="m-collection-list__controls m-collection-list__controls--bottom m:text-center">
             {% render 'slider-controls', 
@@ -546,70 +506,6 @@
       "label": "Image rounded",
       "default": false,
       "info": "Don't work well with \"Content inside\" layout"
-    },
-    {
-      "type": "select",
-      "id": "image_aspect_ratio",
-      "label": "图片比例",
-      "default": "adapt",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "原图比例"
-        },
-        {
-          "value": "1/1",
-          "label": "1:1"
-        },
-        {
-          "value": "3/4",
-          "label": "3:4"
-        },
-        {
-          "value": "4/3",
-          "label": "4:3"
-        },
-        {
-          "value": "16/9",
-          "label": "16:9"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "桌面端图片高度",
-      "min": 160,
-      "max": 800,
-      "step": 10,
-      "unit": "px",
-      "default": 360
-    },
-    {
-      "type": "range",
-      "id": "image_height_mobile",
-      "label": "移动端图片高度",
-      "min": 120,
-      "max": 600,
-      "step": 10,
-      "unit": "px",
-      "default": 260
-    },
-    {
-      "type": "select",
-      "id": "image_object_fit",
-      "label": "图片填充方式",
-      "default": "cover",
-      "options": [
-        {
-          "value": "cover",
-          "label": "填充裁切"
-        },
-        {
-          "value": "contain",
-          "label": "完整显示"
-        }
-      ]
     },
     {
       "type": "header",

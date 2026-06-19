@@ -995,7 +995,7 @@
                         </div>
                       {% endunless %}
 
-                      <div class="handpicked-products__wrapper m-mixed-layout{% if use_scroll_mobile %} m-mixed-layout--mobile-scroll{% endif %}">
+                      <div class="handpicked-products__wrapper m-mixed-layout{% if use_scroll_mobile and enable_slider != true %} m-mixed-layout--mobile-scroll{% endif %}">
                         <div
                           class="{% if enable_slider %}swiper-container{% endif %}"
                           data-products-container
