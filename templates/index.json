@@ -646,179 +646,50 @@
         "animations": "inherit"
       }
     },
-    "testimonials_pnyUnX": {
-      "type": "testimonials",
+    "collapsible_tabs_zY8rXT": {
+      "type": "collapsible-tabs",
       "blocks": {
-        "testimonial_7bVRtk": {
-          "type": "testimonial",
+        "item_MfkmQz": {
+          "type": "item",
           "settings": {
-            "title": "Love it so much",
-            "description": "<p>Was I in Hawaii?! No. Did I feel like I was in Hawaii?! No, because it’s snowing outside. But, would I wear this in Hawaii ❤️</p>",
-            "footer": "<p>Jared S.</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": "denim-jacket"
+            "header": "Collapsible tab heading",
+            "text_size": "h5",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": "",
+            "open": false
           }
         },
-        "testimonial_BaC37W": {
-          "type": "testimonial",
+        "item_i6CRBq": {
+          "type": "item",
           "settings": {
-            "title": "Love it so much",
-            "description": "<p>Always getting compliments from family, friends, and strangers. 🤗 🙌</p>",
-            "footer": "<p>Alyssa A.</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": ""
-          }
-        },
-        "testimonial_X8q9A4": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Love it so much",
-            "description": "<p>Hands down one of the best shirts I’ve ever owned.  Fits great, feels amazing, seems to stay cool and is somewhat water resistant. </p>",
-            "footer": "<p>Ben B.</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": ""
-          }
-        },
-        "testimonial_ef4Etp": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Love it so much",
-            "description": "<p>Was I in Hawaii?! No. Did I feel like I was in Hawaii?! No, because it’s snowing outside. But, would I wear this in Hawaii ❤️</p>",
-            "footer": "<p>Dean D. US</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": ""
-          }
-        },
-        "testimonial_bUi88K": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Love it so much",
-            "description": "<p>Always getting compliments from family, friends, and strangers. 🤗 🙌</p>",
-            "footer": "<p>John D.</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": ""
-          }
-        },
-        "testimonial_NMt6Em": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Love it so much",
-            "description": "<p>Hands down one of the best shirts I’ve ever owned.  Fits great, feels amazing, seems to stay cool and is somewhat water resistant. </p>",
-            "footer": "<p>Dean J.</p>",
-            "image_text": "",
-            "image_link": "",
-            "product": ""
+            "header": "Collapsible tab heading",
+            "text_size": "h5",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": "",
+            "open": false
           }
         }
       },
       "block_order": [
-        "testimonial_7bVRtk",
-        "testimonial_BaC37W",
-        "testimonial_X8q9A4",
-        "testimonial_ef4Etp",
-        "testimonial_bUi88K",
-        "testimonial_NMt6Em"
+        "item_MfkmQz",
+        "item_i6CRBq"
       ],
-      "custom_css": [
-        ".m-svg-icon {width: 12px; height: 12px;}",
-        ".m-stars {column-gap: 2px;}",
-        "@media (min-width: 1280px) {.m-testimonials__header {margin-bottom: 40px; }}",
-        "@media (max-width: 767px) {.m-testimonials__header {margin-bottom: 24px; } .m-section__header {text-align: center; }}"
-      ],
+      "name": "Collapsible tabs",
       "settings": {
-        "heading": "Happy Customers",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "image_position": "left",
+        "column_gap": 100,
+        "heading": "FAQ",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
-        "header_alignment": "left",
-        "container": "container-fluid",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "design": "testimonials-6",
-        "show_stars": true,
-        "autorotate": false,
-        "show_navigation": true,
-        "show_pagination": true,
-        "star_color": "#000000",
-        "item_color_scheme": "",
-        "padding_top": 100,
-        "padding_bottom": 100,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "gallery_LXcceh": {
-      "type": "gallery",
-      "blocks": {
-        "image_yb7PAy": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_E3BVEF": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_hUUEhL": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_thHpC7": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_hnD8wM": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_yb7PAy",
-        "image_E3BVEF",
-        "image_hUUEhL",
-        "image_thHpC7",
-        "image_hnD8wM"
-      ],
-      "custom_css": [
-        ".container-full {padding-inline: 0;}"
-      ],
-      "settings": {
-        "heading": "Follow us Instagram",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "Tag <span class=\"text-black\">@minimog</span> in your Instagram photos for a chance to be featured here.<br>\nFind more inspiration on <a href=\"#\">our Instagram.</a>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "m-button--primary",
         "header_alignment": "center",
-        "container": "container-full",
-        "color_scheme": "",
-        "color_scheme_content": "",
-        "icon": "none",
-        "layout": "grid",
-        "grid_columns": 5,
-        "column_gap": 0,
-        "row_gap": 0,
-        "columns_mobile": "2",
-        "mobile_gap": 10,
-        "use_scroll_mobile": true,
-        "padding_top": 100,
-        "padding_bottom": 0,
-        "custom_class": "",
-        "animations": "inherit"
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false,
+        "animations": "inherit",
+        "custom_class": ""
       }
     },
     "16225125199f82d8fe": {
@@ -928,8 +799,7 @@
     "custom_content_CrCarK",
     "collection_list_8zY3CG",
     "collection_list_wgFUjX",
-    "testimonials_pnyUnX",
-    "gallery_LXcceh",
+    "collapsible_tabs_zY8rXT",
     "16225125199f82d8fe"
   ]
 }
