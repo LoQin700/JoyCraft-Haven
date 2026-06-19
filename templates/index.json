@@ -85,7 +85,7 @@
         "show_arrows": false,
         "autorotate": false,
         "autorotate_speed": 4,
-        "use_content_above": false,
+        "use_content_above": true,
         "custom_class": "sf-home__slideshow",
         "animations": "inherit"
       }
@@ -166,7 +166,7 @@
         "items_per_row": 5,
         "item_gap": 30,
         "pcard_layout": "joycraft",
-        "joycraft_mobile_card_background": "#FCE0E5",
+        "joycraft_mobile_card_background": "#fce0e5",
         "pcard_image_ratio": "1/1",
         "show_vendor": false,
         "hide_title": false,
