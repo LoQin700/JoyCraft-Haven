@@ -3,6 +3,8 @@
   assign mobile_image = block.settings.mobile_image
   assign text_color = block.settings.text_color
   assign button_fixed = block.settings.button_fixed
+  assign overlay_opacity = block.settings.image_overlay_opacity | default: 0
+  assign overlay_alpha = overlay_opacity | times: 0.01
 
   assign heading_size = block.settings.text_size | replace: 'small', 'h3' | replace: 'medium', 'h2' | replace: 'large', 'h1'
   assign subtext_size = block.settings.text_size | replace: 'small', 'h6' | replace: 'medium', 'h6' | replace: 'large', 'h5'
@@ -63,8 +65,8 @@
   if mobile_image == blank
     assign mobile_image = image
   endif
-  
-  assign classes = 'm-image-card' | append: ' ' | append: image_card_class | append: ' ' | append: grid_columns 
+
+  assign classes = 'm-image-card' | append: ' ' | append: image_card_class | append: ' ' | append: grid_columns
   if stack_on_mobile == true or use_content_above == false
     assign classes = classes | append: ' m-image-card--content-stack'
   endif
@@ -90,7 +92,7 @@
   endif
 %}
 <div class="{{ classes }}{% if color_scheme_inherit %} color-scheme-inherit{% endif %}">
-  <div class="m-image-card__inner {{ color_scheme_classes }}{% unless color_scheme_inherit %} m:blocks-radius{% endunless %}">
+  <div class="m-image-card__inner {{ color_scheme_classes }}{% unless color_scheme_inherit %} m:blocks-radius{% endunless %}" style="--m-image-card-overlay-opacity: {{ overlay_alpha }}; position: relative; overflow: hidden;">
     <{% if block.settings.link %}a href="{{ block.settings.link | default: "#" }}" aria-label="{{ block.settings.title | default: 'image card ' | append: block.id }}"{% else %}div{% endif %} class="m-image-card__img{% if color_scheme_inherit %} m:blocks-radius{% endif %} m:block m:h-full" style="--aspect-ratio: {{ aspect_ratio }}; --aspect-ratio-mobile: {{ aspect_ratio_mobile }};">
       <div class="m-media">
         {% if image == blank %}
@@ -134,11 +136,12 @@
         {%- endif %}
       </div>
     </{% if block.settings.link %}a{% else %}div{% endif %}>
-    <div 
+    <span class="m-image-card__overlay" aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(0, 0, 0, var(--m-image-card-overlay-opacity, 0));"></span>
+    <div
       class="m-image-card__content {{ content_position }} {% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
+      style="{% if animated %}--animation-order: {{ index }};{% endif %} z-index: 2;"
       {% if animated %}
         data-cascade
-        style="--animation-order: {{ index }};"
       {% endif %}
     >
       <div class="m-richtext m-image-card__content-inner m:text-{{ text_color }} {% if stack_on_mobile == true %}m:text-center sm:m:text-{{ block.settings.content_alignment }}{% else %}m:text-{{ block.settings.content_alignment }}{% endif %}">
@@ -146,7 +149,7 @@
           <p class="m-richtext__subtitle m-image-card__subheading {{ subtext_size }} {{ text_color }}">{{ block.settings.subtitle }}</p>
         {% endif %}
         {% if block.settings.title != blank %}
-          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}">{{ block.settings.title }}</h3>
+          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}" style="font-size: 18px; line-height: 1.25;">{{ block.settings.title }}</h3>
         {% endif %}
         {% if block.settings.description != blank %}
           <div class="m-richtext__description rte m:text-color-subtext">{{ block.settings.description }}</div>
