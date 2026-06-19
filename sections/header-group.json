@@ -13,6 +13,28 @@
   "sections": {
     "header": {
       "type": "header",
+      "blocks": {
+        "custom_html_TyeMNH": {
+          "type": "custom_html",
+          "settings": {
+            "heading": "stickers",
+            "container": "inherit",
+            "html": ""
+          }
+        },
+        "custom_html_daV8G3": {
+          "type": "custom_html",
+          "settings": {
+            "heading": "Press-on Nails",
+            "container": "inherit",
+            "html": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_html_TyeMNH",
+        "custom_html_daV8G3"
+      ],
       "custom_css": [
         ".m-topbar a[href*=\"facebook\"] {order: 2;}",
         ".social-media-links {column-gap: 30px;}"
@@ -36,7 +58,7 @@
         "secondary_menu": "",
         "mobile_menu": "",
         "uppercase_parent_level": false,
-        "show_menu_column_divider": true,
+        "show_menu_column_divider": false,
         "search": "show_icon",
         "show_account_icon": true,
         "show_cart_icon": true,
