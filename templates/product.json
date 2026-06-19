@@ -96,6 +96,15 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "collapsible_tab_KCXcRD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "liquid": "",
+            "default_open": false
+          }
         }
       },
       "block_order": [
@@ -105,7 +114,8 @@
         "promotion_tags_pLCWzY",
         "variant_picker",
         "virtual_low_stock_Bhiarp",
-        "buy_buttons"
+        "buy_buttons",
+        "collapsible_tab_KCXcRD"
       ],
       "settings": {
         "container": "container",
