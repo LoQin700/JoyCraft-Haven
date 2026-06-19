@@ -55,8 +55,8 @@
         "limit_height": 300,
         "change_product_variant_on_fitlering": false,
         "show_product_count": true,
-        "collapsed_groups": "Product type, Brand, Vendor, Size",
-        "color_swatches": "color,colour,couleur,farbe",
+        "collapsed_groups": "",
+        "color_swatches": "",
         "color_swatches_design": "list"
       }
     },
