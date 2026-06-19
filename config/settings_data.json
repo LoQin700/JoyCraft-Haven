@@ -147,12 +147,12 @@
       },
       "badge-hot": {
         "settings": {
-          "background": "#E8F7FF",
+          "background": "#e8f7ff",
           "background_secondary": "#f5f5f5",
           "background_gradient": "",
-          "text": "#4EBFFC",
+          "text": "#4ebffc",
           "subtext": "#ffffff",
-          "heading_text": "#4EBFFC",
+          "heading_text": "#4ebffc",
           "button": "#ffffff",
           "button_label": "#222222",
           "outline_button_label": "#ffffff",
@@ -213,12 +213,12 @@
       },
       "scheme-cee058e4-58e3-46aa-9af9-219dadc79066": {
         "settings": {
-          "background": "#f4f4f4",
+          "background": "#FFFAFF",
           "background_secondary": "#f5f5f5",
           "background_gradient": "",
-          "text": "#222222",
+          "text": "#DF6791",
           "subtext": "#666666",
-          "heading_text": "#222222",
+          "heading_text": "#DF6791",
           "button": "#000000",
           "button_label": "#ffffff",
           "outline_button_label": "#000000",
