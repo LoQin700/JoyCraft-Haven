@@ -686,12 +686,45 @@
             "content_page": "",
             "open": false
           }
+        },
+        "item_9MimeP": {
+          "type": "item",
+          "settings": {
+            "header": "",
+            "text_size": "h5",
+            "content": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_BxNi6M": {
+          "type": "item",
+          "settings": {
+            "header": "",
+            "text_size": "h5",
+            "content": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_iKQADU": {
+          "type": "item",
+          "settings": {
+            "header": "",
+            "text_size": "h5",
+            "content": "",
+            "content_page": "",
+            "open": false
+          }
         }
       },
       "block_order": [
         "item_MfkmQz",
         "item_i6CRBq",
-        "item_zbCa3M"
+        "item_zbCa3M",
+        "item_9MimeP",
+        "item_BxNi6M",
+        "item_iKQADU"
       ],
       "name": "Collapsible tabs",
       "settings": {
