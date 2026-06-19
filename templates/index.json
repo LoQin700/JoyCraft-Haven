@@ -527,7 +527,7 @@
         "parallax_direction": "vertical",
         "gap": 30,
         "mobile_layout": "two_columns",
-        "gap_mobile": 16,
+        "gap_mobile": 8,
         "use_scroll_mobile": false,
         "padding_top": 50,
         "padding_bottom": 50,
