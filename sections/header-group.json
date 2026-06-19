@@ -40,8 +40,8 @@
         ".social-media-links {column-gap: 30px;}"
       ],
       "settings": {
-        "color_scheme": "",
-        "color_scheme_menu": "default",
+        "color_scheme": "footer",
+        "color_scheme_menu": "footer",
         "header_design": "logo-center__2l",
         "container": "container-fluid",
         "sticky_header": "on_scroll_up",
