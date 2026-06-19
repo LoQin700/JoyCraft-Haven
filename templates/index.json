@@ -346,6 +346,13 @@
     "collection_list_tjXYY7": {
       "type": "collection-list",
       "blocks": {
+        "collection_block_MVJgra": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "press-on-nails",
+            "title": ""
+          }
+        },
         "collection_block_jRJk76": {
           "type": "collection_block",
           "settings": {
@@ -379,15 +386,13 @@
         }
       },
       "block_order": [
+        "collection_block_MVJgra",
         "collection_block_jRJk76",
         "collection_block_rFmir7",
         "collection_block_YXwFjp",
         "collection_block_pYgiyF"
       ],
-      "custom_css": [
-        ".m-collection-card__image {max-width: 340px; margin: 0 auto;}",
-        ".m-collection-card__title {font-size: 18px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "New DIY Craft",
         "heading_size": "h3",
@@ -407,11 +412,15 @@
         "show_product_count": false,
         "count_inline_title": false,
         "image_rounded": false,
+        "image_aspect_ratio": "4/3",
+        "image_height": 360,
+        "image_height_mobile": 260,
+        "image_object_fit": "cover",
         "items_per_row": 4,
         "item_gap": 0,
-        "enable_slider": false,
+        "enable_slider": true,
         "show_pagination": false,
-        "show_navigation": false,
+        "show_navigation": true,
         "autorotate": false,
         "autorotate_speed": 5,
         "mobile_disable_slider": false,
@@ -419,7 +428,7 @@
         "mobile_gap": 16,
         "hidden_slide_control_mobile": false,
         "padding_top": 80,
-        "padding_bottom": 0,
+        "padding_bottom": 40,
         "custom_class": "",
         "animations": "inherit"
       }
@@ -437,7 +446,7 @@
             "text_size": "medium",
             "text_color": "inherit",
             "link": "",
-            "title": "Image card",
+            "title": "",
             "subtitle": "",
             "description": "",
             "button_label": "",
