@@ -428,7 +428,7 @@
         "mobile_gap": 16,
         "hidden_slide_control_mobile": false,
         "padding_top": 80,
-        "padding_bottom": 40,
+        "padding_bottom": 60,
         "custom_class": "",
         "animations": "inherit"
       }
