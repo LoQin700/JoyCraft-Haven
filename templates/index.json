@@ -172,7 +172,7 @@
         "hide_title": false,
         "enable_slider": true,
         "show_pagination": false,
-        "show_navigation": false,
+        "show_navigation": true,
         "show_button_on_header": false,
         "button_type": "link",
         "button_text": "Shop more",
