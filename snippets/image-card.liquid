@@ -9,13 +9,17 @@
   assign heading_size = block.settings.text_size | replace: 'small', 'h3' | replace: 'medium', 'h2' | replace: 'large', 'h1'
   assign subtext_size = block.settings.text_size | replace: 'small', 'h6' | replace: 'medium', 'h6' | replace: 'large', 'h5'
   assign heading_font_size = '25px'
+  assign heading_font_size_mobile = '23px'
   case block.settings.text_size
     when 'small'
       assign heading_font_size = '22px'
+      assign heading_font_size_mobile = '20px'
     when 'medium'
       assign heading_font_size = '25px'
+      assign heading_font_size_mobile = '23px'
     when 'large'
       assign heading_font_size = '28px'
+      assign heading_font_size_mobile = '26px'
   endcase
 
   assign heading_color = ''
@@ -134,7 +138,7 @@
           <p class="m-richtext__subtitle m-image-card__subheading {{ subtext_size }} {{ text_color }}">{{ block.settings.subtitle }}</p>
         {% endif %}
         {% if block.settings.title != blank %}
-          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}" style="font-size: {{ heading_font_size }}; line-height: 1.25;">{{ block.settings.title }}</h3>
+          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}" style="--m-image-card-heading-size: {{ heading_font_size }}; --m-image-card-heading-size-mobile: {{ heading_font_size_mobile }}; font-size: var(--m-image-card-heading-size); line-height: 1.25;">{{ block.settings.title }}</h3>
         {% endif %}
         {% if block.settings.description != blank %}
           <div class="m-richtext__description rte m:text-color-subtext">{{ block.settings.description }}</div>
