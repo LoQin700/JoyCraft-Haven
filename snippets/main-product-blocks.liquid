@@ -308,6 +308,178 @@
           </div>
         </m-visitiors-counter>
         <script src="{{ 'visitors-counter.js' | asset_url }}" defer="defer"></script>
+      {%- when 'promotion_tags' -%}
+        {%- liquid
+          assign valid_tag_count = 0
+          if block.settings.tag_1_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+          if block.settings.tag_2_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+          if block.settings.tag_3_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+          if block.settings.tag_4_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+          if block.settings.tag_5_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+          if block.settings.tag_6_text != blank
+            assign valid_tag_count = valid_tag_count | plus: 1
+          endif
+
+          assign hidden_tag_count = 0
+          assign visible_tag_count = valid_tag_count
+          if block.settings.enable_collapse and block.settings.collapsed_count > 0 and valid_tag_count > block.settings.collapsed_count
+            assign hidden_tag_count = block.settings.collapsed_count
+            assign visible_tag_count = valid_tag_count | minus: hidden_tag_count
+          endif
+          assign rendered_tag_count = 0
+        -%}
+        {%- if valid_tag_count > 0 -%}
+          <div
+            class="jc-promo-tags"
+            style="
+              --jc-promo-block-bg: {{ block.settings.block_background_color }};
+              --jc-promo-tag-bg: {{ block.settings.tag_background_color }};
+              --jc-promo-tag-color: {{ block.settings.tag_text_color }};
+              --jc-promo-toggle-bg: {{ block.settings.toggle_background_color }};
+              --jc-promo-toggle-color: {{ block.settings.toggle_text_color }};
+              --jc-promo-block-border: {{ block.settings.block_border_color }};
+              --jc-promo-tag-border: {{ block.settings.tag_border_color }};
+              --jc-promo-block-radius: {{ block.settings.block_radius }}px;
+              --jc-promo-tag-radius: {{ block.settings.tag_radius }}px;
+              --jc-promo-padding-top: {{ block.settings.block_padding_top }}px;
+              --jc-promo-padding-bottom: {{ block.settings.block_padding_bottom }}px;
+              --jc-promo-padding-x: {{ block.settings.block_padding_left_right }}px;
+              --jc-promo-gap: {{ block.settings.tag_gap }}px;
+            "
+            data-collapsed-count="{{ hidden_tag_count }}"
+          >
+            <div class="jc-promo-tags__inner">
+              {%- for tag_index in (1..6) -%}
+                {%- liquid
+                  assign tag_setting = 'tag_' | append: tag_index | append: '_text'
+                  assign tag_text = block.settings[tag_setting]
+                -%}
+                {%- if tag_text != blank -%}
+                  {%- assign rendered_tag_count = rendered_tag_count | plus: 1 -%}
+                  <span class="jc-promo-tags__item{% if hidden_tag_count > 0 and rendered_tag_count > visible_tag_count %} is-hidden{% endif %}">
+                    {{ tag_text }}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if hidden_tag_count > 0 -%}
+                <button
+                  type="button"
+                  class="jc-promo-tags__toggle"
+                  aria-expanded="false"
+                  data-collapsed-label="+{{ hidden_tag_count }}"
+                  data-expanded-label="-"
+                >
+                  +{{ hidden_tag_count }}
+                </button>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- when 'virtual_sales' -%}
+        {%- if block.settings.enable_virtual_sales -%}
+          {%- liquid
+            assign sales_min = block.settings.min_sales
+            assign sales_max = block.settings.max_sales
+            if sales_min > sales_max
+              assign sales_min = block.settings.max_sales
+              assign sales_max = block.settings.min_sales
+            endif
+            assign sales_range = sales_max | minus: sales_min | plus: 1
+            assign sales_fallback = product.id | modulo: sales_range | plus: sales_min
+          -%}
+          <div
+            class="jc-virtual-sales"
+            style="
+              --jc-vs-bg: {{ block.settings.background_color }};
+              --jc-vs-color: {{ block.settings.text_color }};
+              --jc-vs-icon-color: {{ block.settings.icon_color }};
+              --jc-vs-border: {{ block.settings.border_color }};
+              --jc-vs-radius: {{ block.settings.border_radius }}px;
+              --jc-vs-padding-y: {{ block.settings.padding_y }}px;
+              --jc-vs-padding-x: {{ block.settings.padding_x }}px;
+              --jc-vs-margin-top: {{ block.settings.margin_top }}px;
+              --jc-vs-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+          >
+            {%- if block.settings.show_icon -%}
+              <span class="jc-virtual-sales__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 13.5 9 18 20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {%- endif -%}
+            <span class="jc-virtual-sales__text">
+              {{ block.settings.sales_prefix_text }}
+              <span
+                class="jc-virtual-sales__number"
+                data-product-id="{{ product.id }}"
+                data-product-handle="{{ product.handle }}"
+                data-min="{{ sales_min }}"
+                data-max="{{ sales_max }}"
+                data-prefix="{{ block.settings.sales_prefix_text | escape }}"
+              >{{ sales_fallback }}</span>
+            </span>
+          </div>
+        {%- endif -%}
+      {%- when 'virtual_low_stock' -%}
+        {%- if block.settings.enable_virtual_stock -%}
+          {%- liquid
+            assign stock_min = block.settings.min_stock
+            assign stock_max = block.settings.max_stock
+            if stock_min > stock_max
+              assign stock_min = block.settings.max_stock
+              assign stock_max = block.settings.min_stock
+            endif
+            assign stock_range = stock_max | minus: stock_min | plus: 1
+            assign stock_fallback = product.id | modulo: stock_range | plus: stock_min
+          -%}
+          <div
+            class="jc-virtual-stock"
+            style="
+              --jc-vstock-bg: {{ block.settings.background_color }};
+              --jc-vstock-color: {{ block.settings.text_color }};
+              --jc-vstock-icon-color: {{ block.settings.icon_color }};
+              --jc-vstock-border: {{ block.settings.border_color }};
+              --jc-vstock-radius: {{ block.settings.border_radius }}px;
+              --jc-vstock-padding-y: {{ block.settings.padding_y }}px;
+              --jc-vstock-padding-x: {{ block.settings.padding_x }}px;
+              --jc-vstock-margin-top: {{ block.settings.margin_top }}px;
+              --jc-vstock-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+          >
+            {%- if block.settings.show_icon -%}
+              <span class="jc-virtual-stock__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M12 12 3 7.5M12 12l9-4.5M12 12v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {%- endif -%}
+            <span class="jc-virtual-stock__text">
+              {{ block.settings.stock_prefix_text }}
+              <span
+                class="jc-virtual-stock__number"
+                data-product-id="{{ product.id }}"
+                data-product-handle="{{ product.handle }}"
+                data-min="{{ stock_min }}"
+                data-max="{{ stock_max }}"
+                data-prefix="{{ block.settings.stock_prefix_text | escape }}"
+                data-suffix="{{ block.settings.stock_suffix_text | escape }}"
+              >{{ stock_fallback }}</span>
+              {{ block.settings.stock_suffix_text }}
+            </span>
+          </div>
+        {%- endif -%}
       {%- when 'variant_picker' -%}
         {% render 'product-variant-picker',
           product: product,
