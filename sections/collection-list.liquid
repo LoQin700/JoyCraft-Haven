@@ -93,32 +93,41 @@
     --offset-margin: calc((100vw - {{ container_width }}px) / 2);
   }
 
-  #m-collection-list-{{ section.id }} .m-collection-list__content-container,
+  #m-collection-list-{{ section.id }} .m-collection-list__content-container {
+    position: relative;
+    overflow: visible;
+  }
+
   #m-collection-list-{{ section.id }} .m-collection-list__content,
   #m-collection-list-{{ section.id }} .m-mixed-layout,
   #m-collection-list-{{ section.id }} .m-mixed-layout__wrapper.swiper-container {
     overflow: hidden;
   }
+
   #m-collection-list-{{ section.id }} .m-mixed-layout {
     position: relative;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__content {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
   #m-collection-list-{{ section.id }} .m-mixed-layout__inner.swiper-wrapper {
     align-items: flex-start;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom {
     position: absolute;
     inset: 0;
-    height: auto;
+    height: 100%;
     margin: 0;
     pointer-events: none;
-    z-index: 5;
+    z-index: 8;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls,
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__wrapper {
     position: absolute;
@@ -127,40 +136,73 @@
     height: 100%;
     pointer-events: none;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button,
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-prev,
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0;
     opacity: 0;
     visibility: hidden;
     pointer-events: auto;
-    z-index: 6;
-    transition: opacity .25s ease, visibility .25s ease, background .25s ease, color .25s ease;
+    z-index: 9;
+    transition: opacity .2s ease, visibility .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
   }
+
   #m-collection-list-{{ section.id }}:hover .m-collection-list__controls--bottom .m-slider-controls__button,
   #m-collection-list-{{ section.id }}:hover .m-collection-list__controls--bottom .swiper-button-prev,
   #m-collection-list-{{ section.id }}:hover .m-collection-list__controls--bottom .swiper-button-next {
     opacity: 1;
     visibility: visible;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-prev,
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-prev {
-    left: 16px;
+    left: 12px;
     right: auto;
   }
+
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-next,
   #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-next {
-    right: 16px;
+    right: 12px;
     left: auto;
   }
+
+  @media screen and (min-width: 768px) {
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-prev,
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-prev {
+      left: 18px;
+    }
+
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-next,
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-next {
+      right: 18px;
+    }
+  }
+
   @media screen and (max-width: 767px) {
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls,
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls--md-hidden {
+      display: block !important;
+    }
+
     #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button,
     #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-prev,
     #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-next {
       opacity: 1;
       visibility: visible;
+    }
+
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-prev,
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-prev {
+      left: 8px;
+    }
+
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .m-slider-controls__button-next,
+    #m-collection-list-{{ section.id }} .m-collection-list__controls--bottom .swiper-button-next {
+      right: 8px;
     }
   }
 {% endstyle %}

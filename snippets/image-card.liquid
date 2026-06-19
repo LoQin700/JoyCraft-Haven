@@ -8,6 +8,15 @@
 
   assign heading_size = block.settings.text_size | replace: 'small', 'h3' | replace: 'medium', 'h2' | replace: 'large', 'h1'
   assign subtext_size = block.settings.text_size | replace: 'small', 'h6' | replace: 'medium', 'h6' | replace: 'large', 'h5'
+  assign heading_font_size = '25px'
+  case block.settings.text_size
+    when 'small'
+      assign heading_font_size = '22px'
+    when 'medium'
+      assign heading_font_size = '25px'
+    when 'large'
+      assign heading_font_size = '28px'
+  endcase
 
   assign heading_color = ''
   if text_color != 'inherit'
@@ -18,44 +27,20 @@
   case block.settings.content_position
     when 'top_left'
       assign content_position = ' m:items-start m:justify-start'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-start sm:m:justify-start'
-      endif
     when 'top_right'
       assign content_position = ' m:justify-end m:items-start'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-start sm:m:justify-end'
-      endif
     when 'top_center'
       assign content_position = ' m:items-start m:justify-center'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-start sm:m:justify-center'
-      endif
     when 'bottom_left'
       assign content_position = ' m:items-end m:justify-start'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-end sm:m:justify-start'
-      endif
     when 'bottom_right'
       assign content_position = ' m:items-end m:justify-end'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-end sm:m:justify-end'
-      endif
     when 'bottom_center'
       assign content_position = ' m:justify-center m:items-end'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-end sm:m:justify-center'
-      endif
     when 'center_left'
       assign content_position = ' m:justify-start m:items-center'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-center sm:m:justify-start'
-      endif
     when 'center_right'
       assign content_position = ' m:items-center m:justify-end'
-      if stack_on_mobile == true
-        assign content_position = ' m:justify-center sm:m:items-center sm:m:justify-end'
-      endif
     else
         assign content_position = ' m:items-center m:justify-center'
   endcase
@@ -67,7 +52,7 @@
   endif
 
   assign classes = 'm-image-card' | append: ' ' | append: image_card_class | append: ' ' | append: grid_columns
-  if stack_on_mobile == true or use_content_above == false
+  if use_content_above == true
     assign classes = classes | append: ' m-image-card--content-stack'
   endif
   if button_fixed == true
@@ -144,12 +129,12 @@
         data-cascade
       {% endif %}
     >
-      <div class="m-richtext m-image-card__content-inner m:text-{{ text_color }} {% if stack_on_mobile == true %}m:text-center sm:m:text-{{ block.settings.content_alignment }}{% else %}m:text-{{ block.settings.content_alignment }}{% endif %}">
+      <div class="m-richtext m-image-card__content-inner m:text-{{ text_color }} m:text-{{ block.settings.content_alignment }}">
         {% if block.settings.subtitle != blank %}
           <p class="m-richtext__subtitle m-image-card__subheading {{ subtext_size }} {{ text_color }}">{{ block.settings.subtitle }}</p>
         {% endif %}
         {% if block.settings.title != blank %}
-          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}" style="font-size: 18px; line-height: 1.25;">{{ block.settings.title }}</h3>
+          <h3 class="m-richtext__title m-image-card__heading {{ heading_color }} {{ heading_size }}" style="font-size: {{ heading_font_size }}; line-height: 1.25;">{{ block.settings.title }}</h3>
         {% endif %}
         {% if block.settings.description != blank %}
           <div class="m-richtext__description rte m:text-color-subtext">{{ block.settings.description }}</div>
