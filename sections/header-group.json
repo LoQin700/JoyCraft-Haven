@@ -42,7 +42,7 @@
       "settings": {
         "color_scheme": "footer",
         "color_scheme_menu": "footer",
-        "header_design": "logo-center__2l",
+        "header_design": "logo-left-menu-center",
         "container": "container-fluid",
         "sticky_header": "on_scroll_up",
         "transparent_on_top": false,
