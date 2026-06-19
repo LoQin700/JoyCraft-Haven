@@ -229,7 +229,14 @@
     display: none !important;
   }
 
-  .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
+  .jc-promo-tags.is-expanded .jc-promo-tags__item.is-hidden,
+  .jc-promo-tags.is-expanded .jc-promo-tags__item[hidden],
+  .jc-promo-tags[data-jc-expanded="true"] .jc-promo-tags__item.is-hidden,
+  .jc-promo-tags[data-jc-expanded="true"] .jc-promo-tags__item[hidden] {
+    display: inline-flex !important;
+  }
+
+  .jc-promo-tags:not(.is-expanded):not([data-jc-expanded="true"]) .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
     flex-basis: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
     max-width: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
   }
@@ -250,24 +257,42 @@
     white-space: nowrap !important;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     .jc-promo-tags .jc-promo-tags__inner {
       gap: 8px !important;
     }
 
-    .jc-promo-tags .jc-promo-tags__item {
-      flex-basis: calc((100% - 8px) / 2) !important;
-      max-width: calc((100% - 8px) / 2) !important;
+    .jc-promo-tags .jc-promo-tags__item,
+    .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
+      flex: 0 0 100% !important;
+      flex-basis: 100% !important;
+      max-width: 100% !important;
+      width: 100% !important;
     }
 
-    .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
-      flex-basis: max(110px, calc(((100% - 8px) / 2) - 48px)) !important;
-      max-width: max(110px, calc(((100% - 8px) / 2) - 48px)) !important;
+    .jc-promo-tags .jc-promo-tags__toggle,
+    .jc-promo-tags .jc-promo-tags__toggle--inline {
+      flex: 0 0 auto !important;
+      width: auto !important;
+      min-width: 38px !important;
     }
   }
 </style>
 <script>
   (function () {
+    function getToggleText(toggle) {
+      return (toggle && toggle.textContent ? toggle.textContent : '').replace(/\s+/g, '').trim();
+    }
+
+    function promoIsExpanded(root, toggle) {
+      return root.classList.contains('is-expanded') ||
+        root.getAttribute('data-expanded') === 'true' ||
+        root.getAttribute('aria-expanded') === 'true' ||
+        toggle.getAttribute('aria-expanded') === 'true' ||
+        getToggleText(toggle) === '-' ||
+        getToggleText(toggle) === '−';
+    }
+
     function isPromoNodeVisible(el) {
       if (!el || el.hidden || el.getAttribute('aria-hidden') === 'true' || el.classList.contains('is-hidden')) return false;
       var style = window.getComputedStyle(el);
@@ -279,20 +304,28 @@
       var toggle = root.querySelector('.jc-promo-tags__toggle');
       if (!toggle || !inner) return;
 
+      var expanded = promoIsExpanded(root, toggle);
+      root.setAttribute('data-jc-expanded', expanded ? 'true' : 'false');
+
       var items = Array.prototype.slice.call(inner.querySelectorAll('.jc-promo-tags__item'));
       items.forEach(function (item) {
         item.classList.remove('jc-promo-tags__item--before-toggle');
+        if (expanded && item.hasAttribute('hidden')) {
+          item.removeAttribute('hidden');
+        }
       });
 
       toggle.classList.add('jc-promo-tags__toggle--inline');
 
       if (!isPromoNodeVisible(toggle)) return;
 
-      var visibleItems = items.filter(isPromoNodeVisible);
+      var visibleItems = expanded ? items : items.filter(isPromoNodeVisible);
       if (!visibleItems.length) return;
 
       var lastVisible = visibleItems[visibleItems.length - 1];
-      lastVisible.classList.add('jc-promo-tags__item--before-toggle');
+      if (!expanded) {
+        lastVisible.classList.add('jc-promo-tags__item--before-toggle');
+      }
 
       if (toggle.parentElement !== inner) {
         inner.appendChild(toggle);
@@ -309,11 +342,14 @@
 
     document.addEventListener('DOMContentLoaded', refreshPromoTags);
     window.addEventListener('load', refreshPromoTags);
+    window.addEventListener('resize', refreshPromoTags);
     document.addEventListener('shopify:section:load', refreshPromoTags);
+    document.addEventListener('shopify:block:select', refreshPromoTags);
     document.addEventListener('click', function (event) {
       if (!event.target.closest('.jc-promo-tags__toggle')) return;
       window.requestAnimationFrame(refreshPromoTags);
-      window.setTimeout(refreshPromoTags, 180);
+      window.setTimeout(refreshPromoTags, 80);
+      window.setTimeout(refreshPromoTags, 240);
     }, true);
   })();
 </script>
