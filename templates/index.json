@@ -390,7 +390,7 @@
         ".m-collection-card__title {font-size: 18px;}"
       ],
       "settings": {
-        "heading": "",
+        "heading": "New DIY Craft",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
@@ -398,11 +398,11 @@
         "button_link": "",
         "button_style": "m-button--primary",
         "header_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "badge-hot",
         "container": "container-fluid",
         "layout": "grid",
         "expanded": true,
-        "card_style": "inside",
+        "card_style": "standard",
         "text_alignment": "center",
         "hover_effect": "scaling-up",
         "show_product_count": false,
