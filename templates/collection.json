@@ -39,7 +39,7 @@
         ".m-collection-filters-form {margin-bottom: 0;}"
       ],
       "settings": {
-        "joycraft_mobile_card_background": "#FDF7F7",
+        "joycraft_card": "#FDF7F7",
         "container": "container-fluid",
         "grid_layout": "grid",
         "grid_columns": "4",
@@ -72,7 +72,7 @@
         "columns": 5,
         "column_gap": 30,
         "pcard_layout": "",
-        "joycraft_mobile_card_background": "",
+        "joycraft_card": "",
         "pcard_image_ratio": "",
         "show_vendor": false,
         "hide_title": false,
