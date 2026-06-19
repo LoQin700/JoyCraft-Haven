@@ -30,8 +30,6 @@
   if show_pagination or show_navigation
     assign show_controls = true
   endif
-
-  assign mobile_image_ratio_value = section.settings.mobile_image_ratio | default: '4/3'
 -%}
 
 {%- capture gridClass -%}
@@ -46,82 +44,6 @@
     --row-gap-mobile: 30px; --items: {{ section.settings.columns }};
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
-    --ymal-mobile-image-height: {{ section.settings.mobile_image_height | default: 260 }}px;
-    --ymal-mobile-image-fit: {{ section.settings.mobile_image_fit | default: 'cover' }};
-    {% unless mobile_image_ratio_value == 'adapt' %}
-      --ymal-mobile-image-ratio: {{ mobile_image_ratio_value }};
-    {% endunless %}
-  }
-
-  @media screen and (max-width: 767px) {
-    #m-section--{{ section.id }} .m-product-recommendations__wrapper {
-      overflow: hidden;
-    }
-
-    #m-section--{{ section.id }} .m-product-list {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    #m-section--{{ section.id }} .swiper-slide,
-    #m-section--{{ section.id }} .m\:column {
-      min-width: 0;
-    }
-
-    #m-section--{{ section.id }} .m-product-card,
-    #m-section--{{ section.id }} .m-product-card__wrapper,
-    #m-section--{{ section.id }} .m-product-card__inner {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    #m-section--{{ section.id }} .m-product-card__media,
-    #m-section--{{ section.id }} .m-product-card__image,
-    #m-section--{{ section.id }} .m-product-card__main-image,
-    #m-section--{{ section.id }} .m-product-card__featured-image,
-    #m-section--{{ section.id }} .sf__pcard-image,
-    #m-section--{{ section.id }} .prod__card-image,
-    #m-section--{{ section.id }} .m-image,
-    #m-section--{{ section.id }} .m-responsive-image {
-      width: 100% !important;
-      max-width: 100% !important;
-      height: var(--ymal-mobile-image-height) !important;
-      max-height: var(--ymal-mobile-image-height) !important;
-      {% unless mobile_image_ratio_value == 'adapt' %}
-        aspect-ratio: var(--ymal-mobile-image-ratio);
-      {% endunless %}
-      overflow: hidden !important;
-      padding: 0 !important;
-    }
-
-    #m-section--{{ section.id }} .m-product-card__media img,
-    #m-section--{{ section.id }} .m-product-card__image img,
-    #m-section--{{ section.id }} .m-product-card__main-image img,
-    #m-section--{{ section.id }} .m-product-card__featured-image img,
-    #m-section--{{ section.id }} .sf__pcard-image img,
-    #m-section--{{ section.id }} .prod__card-image img,
-    #m-section--{{ section.id }} .m-image img,
-    #m-section--{{ section.id }} .m-responsive-image img,
-    #m-section--{{ section.id }} img.m-product-card__image {
-      position: static !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-height: 100% !important;
-      object-fit: var(--ymal-mobile-image-fit, cover) !important;
-      display: block !important;
-    }
-
-    #m-section--{{ section.id }} .m-product-card__content,
-    #m-section--{{ section.id }} .m-product-card__info {
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    #m-section--{{ section.id }} .m-product-card__title,
-    #m-section--{{ section.id }} .m-product-card__name {
-      overflow-wrap: anywhere;
-    }
   }
 {%- endstyle -%}
 <section
@@ -155,7 +77,7 @@
                       when '2'
                         render 'product-card-2', product: product, index: forloop.index, animated: animated, animation_effect: animation_effect, remove_params: remove_params
                       when 'joycraft'
-                        render 'product-card-joycraft', product: product, index: forloop.index, animated: animated, animation_effect: animation_effect, remove_params: remove_params
+                        render 'product-card-joycraft', product: product, index: forloop.index, animated: animated, animation_effect: animation_effect, remove_params: remove_params, mobile_card_background: section.settings.joycraft_mobile_card_background
                       when '3'
                         render 'product-card-3', product: product, index: forloop.index, animated: animated, animation_effect: animation_effect, remove_params: remove_params
                       when '4'
@@ -194,6 +116,15 @@
     {
       "type": "header",
       "content": "General"
+    },
+    {
+      "type": "header",
+      "content": "JoyCraft style"
+    },
+    {
+      "type": "color",
+      "id": "joycraft_mobile_card_background",
+      "label": "JoyCraft \u624b\u673a\u7aef\u5361\u7247\u80cc\u666f\u989c\u8272"
     },
     {
       "type": "select",
@@ -298,64 +229,6 @@
       "min": 0,
       "max": 50,
       "step": 2
-    },
-    {
-      "type": "header",
-      "content": "Mobile image settings"
-    },
-    {
-      "type": "select",
-      "id": "mobile_image_ratio",
-      "label": "Mobile image ratio",
-      "default": "4/3",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "Adapt to image"
-        },
-        {
-          "value": "1/1",
-          "label": "1:1"
-        },
-        {
-          "value": "3/4",
-          "label": "3:4"
-        },
-        {
-          "value": "4/3",
-          "label": "4:3"
-        },
-        {
-          "value": "16/9",
-          "label": "16:9"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "mobile_image_height",
-      "label": "Mobile image height",
-      "default": 260,
-      "min": 160,
-      "max": 420,
-      "step": 10,
-      "unit": "px"
-    },
-    {
-      "type": "select",
-      "id": "mobile_image_fit",
-      "label": "Mobile image fit",
-      "default": "cover",
-      "options": [
-        {
-          "value": "cover",
-          "label": "Cover"
-        },
-        {
-          "value": "contain",
-          "label": "Contain"
-        }
-      ]
     },
     {
       "type": "header",

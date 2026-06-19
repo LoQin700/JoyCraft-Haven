@@ -42,6 +42,7 @@
   class="{{ classes }}"
   data-section-type="custom-content"
   data-section-id="{{ section.id }}"
+  data-mobile-layout="{{ section.settings.mobile_layout }}"
 >
   {% if background_image != blank or background_image_mobile != blank %}
     {% liquid
@@ -1453,6 +1454,22 @@
       "unit": "px"
     },
     {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "移动端布局",
+      "default": "one_column",
+      "options": [
+        {
+          "value": "one_column",
+          "label": "单列"
+        },
+        {
+          "value": "two_columns",
+          "label": "两列"
+        }
+      ]
+    },
+    {
       "type": "range",
       "id": "gap_mobile",
       "label": "Column gap mobile",
@@ -2750,17 +2767,6 @@
           "id": "mobile_image",
           "label": "Mobile image"
         },
-     
-      {
-        "type": "range",
-       "id": "image_overlay_opacity",
-        "label": "遮罩透明度",
-         "min": 0,
-         "max": 100,
-        "step": 5,
-         "unit": "%",
-         "default": 0
-       },
         {
           "type": "url",
           "id": "link",
