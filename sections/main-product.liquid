@@ -205,18 +205,22 @@
 
 <style>
   .jc-promo-tags .jc-promo-tags__inner {
-    display: flex !important;
-    flex-wrap: wrap !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
     align-items: center !important;
-    gap: 10px 12px !important;
+    column-gap: 12px !important;
+    row-gap: 10px !important;
+    background: transparent !important;
+    border: 0 !important;
   }
 
   .jc-promo-tags .jc-promo-tags__item {
     box-sizing: border-box !important;
-    flex: 0 1 calc((100% - 12px) / 2) !important;
-    max-width: calc((100% - 12px) / 2) !important;
+    grid-column: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     min-width: 0 !important;
-    display: inline-flex !important;
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
@@ -224,27 +228,17 @@
     white-space: normal !important;
   }
 
-  .jc-promo-tags .jc-promo-tags__item.is-hidden,
-  .jc-promo-tags .jc-promo-tags__item[hidden] {
+  .jc-promo-tags .jc-promo-tags__item[hidden],
+  .jc-promo-tags .jc-promo-tags__item.is-hidden[aria-hidden="true"] {
     display: none !important;
-  }
-
-  .jc-promo-tags.is-expanded .jc-promo-tags__item.is-hidden,
-  .jc-promo-tags.is-expanded .jc-promo-tags__item[hidden],
-  .jc-promo-tags[data-jc-expanded="true"] .jc-promo-tags__item.is-hidden,
-  .jc-promo-tags[data-jc-expanded="true"] .jc-promo-tags__item[hidden] {
-    display: inline-flex !important;
-  }
-
-  .jc-promo-tags:not(.is-expanded):not([data-jc-expanded="true"]) .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
-    flex-basis: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
-    max-width: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
   }
 
   .jc-promo-tags .jc-promo-tags__toggle,
   .jc-promo-tags .jc-promo-tags__toggle--inline {
     box-sizing: border-box !important;
-    flex: 0 0 auto !important;
+    grid-column: 2 !important;
+    align-self: center !important;
+    justify-self: start !important;
     width: auto !important;
     min-width: 38px !important;
     max-width: none !important;
@@ -257,87 +251,134 @@
     white-space: nowrap !important;
   }
 
+  .jc-promo-tags .jc-promo-tags__toggle[hidden] {
+    display: none !important;
+  }
+
   @media screen and (max-width: 767px) {
     .jc-promo-tags .jc-promo-tags__inner {
-      gap: 8px !important;
+      grid-template-columns: minmax(0, 1fr) auto !important;
+      column-gap: 10px !important;
+      row-gap: 8px !important;
     }
 
-    .jc-promo-tags .jc-promo-tags__item,
-    .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
-      flex: 0 0 100% !important;
-      flex-basis: 100% !important;
-      max-width: 100% !important;
+    .jc-promo-tags .jc-promo-tags__item {
+      grid-column: 1 !important;
       width: 100% !important;
-    }
-
-    .jc-promo-tags .jc-promo-tags__toggle,
-    .jc-promo-tags .jc-promo-tags__toggle--inline {
-      flex: 0 0 auto !important;
-      width: auto !important;
-      min-width: 38px !important;
+      max-width: 100% !important;
     }
   }
 </style>
 <script>
   (function () {
-    function getToggleText(toggle) {
-      return (toggle && toggle.textContent ? toggle.textContent : '').replace(/\s+/g, '').trim();
+    function cleanText(text) {
+      return (text || '').replace(/\s+/g, '').trim();
     }
 
-    function promoIsExpanded(root, toggle) {
+    function getCollapsedCount(root, toggle) {
+      var sources = [
+        root && root.getAttribute('data-collapsed-count'),
+        toggle && toggle.getAttribute('data-collapsed-count'),
+        toggle && toggle.getAttribute('data-count')
+      ];
+
+      for (var i = 0; i < sources.length; i += 1) {
+        var value = parseInt(sources[i], 10);
+        if (!Number.isNaN(value) && value >= 0) return value;
+      }
+
+      var match = cleanText(toggle && toggle.textContent).match(/\+(\d+)/);
+      if (match) return parseInt(match[1], 10);
+
+      return 0;
+    }
+
+    function isInitiallyExpanded(root, toggle) {
+      var text = cleanText(toggle && toggle.textContent);
       return root.classList.contains('is-expanded') ||
+        root.getAttribute('data-jc-expanded') === 'true' ||
         root.getAttribute('data-expanded') === 'true' ||
         root.getAttribute('aria-expanded') === 'true' ||
-        toggle.getAttribute('aria-expanded') === 'true' ||
-        getToggleText(toggle) === '-' ||
-        getToggleText(toggle) === '−';
+        (toggle && toggle.getAttribute('aria-expanded') === 'true') ||
+        text === '-' || text === '−';
     }
 
-    function isPromoNodeVisible(el) {
-      if (!el || el.hidden || el.getAttribute('aria-hidden') === 'true' || el.classList.contains('is-hidden')) return false;
-      var style = window.getComputedStyle(el);
-      return style.display !== 'none' && style.visibility !== 'hidden';
-    }
-
-    function syncPromoTags(root) {
+    function preparePromoTags(root) {
+      if (!root) return;
       var inner = root.querySelector('.jc-promo-tags__inner') || root;
       var toggle = root.querySelector('.jc-promo-tags__toggle');
-      if (!toggle || !inner) return;
-
-      var expanded = promoIsExpanded(root, toggle);
-      root.setAttribute('data-jc-expanded', expanded ? 'true' : 'false');
+      if (!inner || !toggle) return;
 
       var items = Array.prototype.slice.call(inner.querySelectorAll('.jc-promo-tags__item'));
-      items.forEach(function (item) {
-        item.classList.remove('jc-promo-tags__item--before-toggle');
-        if (expanded && item.hasAttribute('hidden')) {
-          item.removeAttribute('hidden');
-        }
+      items = items.filter(function (item) {
+        return item && item.textContent && item.textContent.replace(/\s+/g, '').length > 0;
       });
+      if (!items.length) {
+        toggle.hidden = true;
+        return;
+      }
 
-      toggle.classList.add('jc-promo-tags__toggle--inline');
-
-      if (!isPromoNodeVisible(toggle)) return;
-
-      var visibleItems = expanded ? items : items.filter(isPromoNodeVisible);
-      if (!visibleItems.length) return;
-
-      var lastVisible = visibleItems[visibleItems.length - 1];
-      if (!expanded) {
-        lastVisible.classList.add('jc-promo-tags__item--before-toggle');
+      if (!root.hasAttribute('data-jc-expanded')) {
+        root.setAttribute('data-jc-expanded', isInitiallyExpanded(root, toggle) ? 'true' : 'false');
       }
 
       if (toggle.parentElement !== inner) {
         inner.appendChild(toggle);
       }
 
-      if (toggle.previousElementSibling !== lastVisible) {
-        lastVisible.insertAdjacentElement('afterend', toggle);
+      renderPromoTags(root);
+    }
+
+    function renderPromoTags(root) {
+      if (!root) return;
+      var inner = root.querySelector('.jc-promo-tags__inner') || root;
+      var toggle = root.querySelector('.jc-promo-tags__toggle');
+      if (!inner || !toggle) return;
+
+      var items = Array.prototype.slice.call(inner.querySelectorAll('.jc-promo-tags__item')).filter(function (item) {
+        return item && item.textContent && item.textContent.replace(/\s+/g, '').length > 0;
+      });
+
+      var total = items.length;
+      var collapsedCount = Math.min(getCollapsedCount(root, toggle), Math.max(total - 1, 0));
+      var hasHiddenItems = collapsedCount > 0 && total > collapsedCount;
+      var expanded = root.getAttribute('data-jc-expanded') === 'true';
+      var visibleCount = hasHiddenItems && !expanded ? total - collapsedCount : total;
+      var hiddenCount = Math.max(total - visibleCount, 0);
+
+      root.classList.toggle('is-expanded', expanded);
+      root.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.classList.add('jc-promo-tags__toggle--inline');
+
+      items.forEach(function (item, index) {
+        item.classList.remove('jc-promo-tags__item--before-toggle', 'is-hidden');
+        item.style.gridColumn = '1';
+        item.style.gridRow = String(index + 1);
+        if (index < visibleCount) {
+          item.hidden = false;
+          item.removeAttribute('aria-hidden');
+          item.style.display = '';
+        } else {
+          item.hidden = true;
+          item.setAttribute('aria-hidden', 'true');
+          item.style.display = 'none';
+        }
+      });
+
+      if (!hasHiddenItems) {
+        toggle.hidden = true;
+        return;
       }
+
+      toggle.hidden = false;
+      toggle.style.gridColumn = '2';
+      toggle.style.gridRow = String(Math.max(visibleCount, 1));
+      toggle.textContent = expanded ? '-' : '+' + hiddenCount;
     }
 
     function refreshPromoTags() {
-      document.querySelectorAll('.jc-promo-tags').forEach(syncPromoTags);
+      document.querySelectorAll('.jc-promo-tags').forEach(preparePromoTags);
     }
 
     document.addEventListener('DOMContentLoaded', refreshPromoTags);
@@ -345,17 +386,28 @@
     window.addEventListener('resize', refreshPromoTags);
     document.addEventListener('shopify:section:load', refreshPromoTags);
     document.addEventListener('shopify:block:select', refreshPromoTags);
+    document.addEventListener('shopify:block:deselect', refreshPromoTags);
+
     document.addEventListener('click', function (event) {
-      if (!event.target.closest('.jc-promo-tags__toggle')) return;
-      window.requestAnimationFrame(refreshPromoTags);
-      window.setTimeout(refreshPromoTags, 80);
-      window.setTimeout(refreshPromoTags, 240);
+      var toggle = event.target.closest('.jc-promo-tags__toggle');
+      if (!toggle) return;
+      var root = toggle.closest('.jc-promo-tags');
+      if (!root) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+      var expanded = root.getAttribute('data-jc-expanded') === 'true';
+      root.setAttribute('data-jc-expanded', expanded ? 'false' : 'true');
+      renderPromoTags(root);
     }, true);
   })();
 </script>
 
 
 {% schema %}
+
 {
   "name": "Product information",
   "settings": [
