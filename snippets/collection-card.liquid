@@ -1,8 +1,25 @@
 {%- liquid
+  if image == blank and collection != blank
+    assign image = collection.featured_image
+  endif
+  if image == blank and collection != blank and collection.products.first != blank
+    assign first_collection_product = collection.products.first
+    assign image = first_collection_product.featured_image
+  endif
+
+  assign image_ratio_setting = image_aspect_ratio | default: 'adapt'
   assign aspect_ratio = image.aspect_ratio
+  if image_ratio_setting != 'adapt'
+    assign aspect_ratio = image_ratio_setting
+  endif
   if image_rounded
     assign aspect_ratio = 1
   endif
+
+  assign card_image_height = image_height | default: 360
+  assign card_image_height_mobile = image_height_mobile | default: 260
+  assign card_image_fit = image_object_fit | default: 'cover'
+
   for i in (1..index)
     capture current
       cycle 1, 2, 3, 4, 5, 6
@@ -35,6 +52,44 @@
   endif
 -%}
 
+<style>
+  .m-collection-card__image--controlled .m-hover-box__wrapper {
+    height: var(--collection-card-image-height);
+    overflow: hidden;
+  }
+
+  .m-collection-card__image--controlled[data-image-ratio="true"] .m-hover-box__wrapper {
+    aspect-ratio: var(--collection-card-image-ratio);
+  }
+
+  .m-collection-card__image--controlled .m-hover-box__wrapper > div,
+  .m-collection-card__image--controlled .m-hover-box__wrapper img,
+  .m-collection-card__image--controlled .m-hover-box__wrapper svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .m-collection-card__image--controlled .m-hover-box__wrapper img {
+    object-fit: var(--collection-card-image-fit, cover);
+  }
+
+  @media screen and (max-width: 767px) {
+    .m-collection-card__image--controlled .m-hover-box__wrapper {
+      height: var(--collection-card-image-height-mobile);
+    }
+  }
+</style>
+
+{%- capture image_control_style -%}
+  --collection-card-image-height: {{ card_image_height }}px;
+  --collection-card-image-height-mobile: {{ card_image_height_mobile }}px;
+  --collection-card-image-fit: {{ card_image_fit }};
+  {%- unless image_ratio_setting == 'adapt' -%}
+    --collection-card-image-ratio: {{ image_ratio_setting }};
+  {%- endunless -%}
+{%- endcapture -%}
+
 <div class="m:column{% if enable_slider %} swiper-slide{% endif %}">
   <div
     class="m-collection-card m-collection-card--{{ card_style }}{{ classes }}"
@@ -48,8 +103,10 @@
         {% when 'inside' %}
           <a
             href="{{ collection.url | default: "#" }}"
-            class="m-collection-card__image m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
+            class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
+            style="{{ image_control_style | strip }}"
+            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -95,8 +152,10 @@
         {% when 'inside-2' %}
           <a
             href="{{ collection.url | default: "#" }}"
-            class="m-collection-card__image m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
+            class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
+            style="{{ image_control_style | strip }}"
+            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -128,8 +187,10 @@
           </h3>
           <a
             href="{{ collection.url | default: "#" }}"
-            class="m-collection-card__image m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover and card_style != 'inside' %} {{ hover }}{% endif %}"
+            class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover and card_style != 'inside' %} {{ hover }}{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
+            style="{{ image_control_style | strip }}"
+            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
@@ -151,8 +212,10 @@
         {% when 'standard' %}
           <a
             href="{{ collection.url | default: "#" }}"
-            class="m-collection-card__image m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover %} {{ hover }}{% endif %}"
+            class="m-collection-card__image m-collection-card__image--controlled m:block m:w-full{% if image_rounded %} m-collection-card__image-rounded m:rounded-full{% else %} m:blocks-radius{% endif %}{% if hover %} {{ hover }}{% endif %}"
             aria-label="{{ collection.title | default: "collection"  }}"
+            style="{{ image_control_style | strip }}"
+            {% unless image_ratio_setting == 'adapt' %}data-image-ratio="true"{% endunless %}
           >
             <div class="m-hover-box__wrapper">
               {% if image != blank %}
