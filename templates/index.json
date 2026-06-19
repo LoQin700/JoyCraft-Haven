@@ -534,8 +534,7 @@
           "type": "collection_block",
           "settings": {
             "collection": "diy-tools",
-            "title": "",
-            "item_image": "shopify://shop_images/O1CN01XddSX91DxfDkqR59x__2219643570283-0-cib.jpg"
+            "title": ""
           }
         },
         "collection_block_kAMnGi": {
@@ -599,8 +598,7 @@
           "type": "collection_block",
           "settings": {
             "collection": "diy-tools",
-            "title": "Sticker Tool Collection",
-            "item_image": "shopify://shop_images/O1CN01XddSX91DxfDkqR59x__2219643570283-0-cib.jpg"
+            "title": "Sticker Tool Collection"
           }
         }
       },
