@@ -91,6 +91,7 @@
     },
     "mobile-sticky-bar": {
       "type": "mobile-sticky-bar",
+      "disabled": true,
       "settings": {
         "show_mobile_sticky": true,
         "show_home_icon": true,
@@ -129,6 +130,7 @@
         "block-2",
         "block-3"
       ],
+      "disabled": true,
       "settings": {
         "design_mode": false,
         "enable": false,
