@@ -203,6 +203,122 @@
 
 {%- render 'product-data' -%}
 
+<style>
+  .jc-promo-tags .jc-promo-tags__inner {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 10px 12px !important;
+  }
+
+  .jc-promo-tags .jc-promo-tags__item {
+    box-sizing: border-box !important;
+    flex: 0 1 calc((100% - 12px) / 2) !important;
+    max-width: calc((100% - 12px) / 2) !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-weight: 400 !important;
+    white-space: normal !important;
+  }
+
+  .jc-promo-tags .jc-promo-tags__item.is-hidden,
+  .jc-promo-tags .jc-promo-tags__item[hidden] {
+    display: none !important;
+  }
+
+  .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
+    flex-basis: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
+    max-width: max(120px, calc(((100% - 12px) / 2) - 52px)) !important;
+  }
+
+  .jc-promo-tags .jc-promo-tags__toggle,
+  .jc-promo-tags .jc-promo-tags__toggle--inline {
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 38px !important;
+    max-width: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  @media screen and (max-width: 480px) {
+    .jc-promo-tags .jc-promo-tags__inner {
+      gap: 8px !important;
+    }
+
+    .jc-promo-tags .jc-promo-tags__item {
+      flex-basis: calc((100% - 8px) / 2) !important;
+      max-width: calc((100% - 8px) / 2) !important;
+    }
+
+    .jc-promo-tags .jc-promo-tags__item.jc-promo-tags__item--before-toggle {
+      flex-basis: max(110px, calc(((100% - 8px) / 2) - 48px)) !important;
+      max-width: max(110px, calc(((100% - 8px) / 2) - 48px)) !important;
+    }
+  }
+</style>
+<script>
+  (function () {
+    function isPromoNodeVisible(el) {
+      if (!el || el.hidden || el.getAttribute('aria-hidden') === 'true' || el.classList.contains('is-hidden')) return false;
+      var style = window.getComputedStyle(el);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    }
+
+    function syncPromoTags(root) {
+      var inner = root.querySelector('.jc-promo-tags__inner') || root;
+      var toggle = root.querySelector('.jc-promo-tags__toggle');
+      if (!toggle || !inner) return;
+
+      var items = Array.prototype.slice.call(inner.querySelectorAll('.jc-promo-tags__item'));
+      items.forEach(function (item) {
+        item.classList.remove('jc-promo-tags__item--before-toggle');
+      });
+
+      toggle.classList.add('jc-promo-tags__toggle--inline');
+
+      if (!isPromoNodeVisible(toggle)) return;
+
+      var visibleItems = items.filter(isPromoNodeVisible);
+      if (!visibleItems.length) return;
+
+      var lastVisible = visibleItems[visibleItems.length - 1];
+      lastVisible.classList.add('jc-promo-tags__item--before-toggle');
+
+      if (toggle.parentElement !== inner) {
+        inner.appendChild(toggle);
+      }
+
+      if (toggle.previousElementSibling !== lastVisible) {
+        lastVisible.insertAdjacentElement('afterend', toggle);
+      }
+    }
+
+    function refreshPromoTags() {
+      document.querySelectorAll('.jc-promo-tags').forEach(syncPromoTags);
+    }
+
+    document.addEventListener('DOMContentLoaded', refreshPromoTags);
+    window.addEventListener('load', refreshPromoTags);
+    document.addEventListener('shopify:section:load', refreshPromoTags);
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.jc-promo-tags__toggle')) return;
+      window.requestAnimationFrame(refreshPromoTags);
+      window.setTimeout(refreshPromoTags, 180);
+    }, true);
+  })();
+</script>
+
+
 {% schema %}
 {
   "name": "Product information",
@@ -720,6 +836,12 @@
         },
         {
           "type": "color",
+          "id": "block_background_color",
+          "label": "Block background color",
+          "default": "#fffaf0"
+        },
+        {
+          "type": "color",
           "id": "tag_background_color",
           "label": "Tag background color",
           "default": "#ffffff"
@@ -744,33 +866,79 @@
         },
         {
           "type": "color",
+          "id": "block_border_color",
+          "label": "Block border color",
+          "default": "#f2d8c8"
+        },
+        {
+          "type": "color",
           "id": "tag_border_color",
           "label": "Tag border color",
           "default": "#f2d8c8"
         },
         {
           "type": "header",
-          "content": "Spacing"
+          "content": "Spacing and radius"
         },
         {
           "type": "range",
-          "id": "margin_top",
-          "label": "Margin top",
+          "id": "block_radius",
+          "label": "Block radius",
           "min": 0,
           "max": 40,
           "step": 1,
           "unit": "px",
-          "default": 0
+          "default": 8
         },
         {
           "type": "range",
-          "id": "margin_bottom",
-          "label": "Margin bottom",
+          "id": "tag_radius",
+          "label": "Tag radius",
           "min": 0,
           "max": 40,
           "step": 1,
           "unit": "px",
-          "default": 0
+          "default": 6
+        },
+        {
+          "type": "range",
+          "id": "block_padding_top",
+          "label": "Block padding top",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "block_padding_bottom",
+          "label": "Block padding bottom",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "block_padding_left_right",
+          "label": "Block horizontal padding",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "tag_gap",
+          "label": "Tag gap",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 8
         }
       ]
     },
