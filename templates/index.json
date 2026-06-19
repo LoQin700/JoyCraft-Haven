@@ -660,9 +660,9 @@
         "item_MfkmQz": {
           "type": "item",
           "settings": {
-            "header": "Collapsible tab heading",
+            "header": "Do you ship overseas?",
             "text_size": "h5",
-            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content": "<p>Yes, JoyCraft Haven ships worldwide! Shipping costs will be automatically calculated and added at checkout. Be sure to stay tuned for our year-round discounts and exclusive promotions. ✈️</p>",
             "content_page": "",
             "open": false
           }
@@ -670,9 +670,19 @@
         "item_i6CRBq": {
           "type": "item",
           "settings": {
-            "header": "Collapsible tab heading",
+            "header": "How long will it take to receive my order?",
             "text_size": "h5",
-            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content": "<p>Depending on your region, standard shipping usually takes 7-10 days. Our packages are shipped from China, and most orders arrive within about a week. Once your order has been dispatched, JoyCraft Haven will send you a notification email so you can easily track its progress. 🚚</p>",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_zbCa3M": {
+          "type": "item",
+          "settings": {
+            "header": "",
+            "text_size": "h5",
+            "content": "",
             "content_page": "",
             "open": false
           }
@@ -680,7 +690,8 @@
       },
       "block_order": [
         "item_MfkmQz",
-        "item_i6CRBq"
+        "item_i6CRBq",
+        "item_zbCa3M"
       ],
       "name": "Collapsible tabs",
       "settings": {
