@@ -349,7 +349,7 @@
         "collection_block_jRJk76": {
           "type": "collection_block",
           "settings": {
-            "collection": "simulation-business",
+            "collection": "diy-tools",
             "title": "",
             "item_image": "shopify://shop_images/O1CN01XddSX91DxfDkqR59x__2219643570283-0-cib.jpg"
           }
@@ -357,9 +357,8 @@
         "collection_block_rFmir7": {
           "type": "collection_block",
           "settings": {
-            "collection": "festival-scenes",
-            "title": "",
-            "item_image": "shopify://shop_images/O1CN01G8c94V1DxfDkhNGvu__2219643570283-0-cib.jpg"
+            "collection": "press-on-nails",
+            "title": ""
           }
         },
         "collection_block_YXwFjp": {
@@ -397,7 +396,7 @@
         "button_label": "",
         "button_link": "",
         "button_style": "m-button--primary",
-        "header_alignment": "center",
+        "header_alignment": "left",
         "color_scheme": "badge-hot",
         "container": "container-fluid",
         "layout": "grid",
