@@ -63,19 +63,13 @@
             "tag_6_text": "",
             "enable_collapse": true,
             "collapsed_count": 2,
-            "block_background_color": "#fffaf0",
-            "tag_background_color": "#ffffff",
+            "tag_background_color": "#FFFAF0",
             "tag_text_color": "#d80000",
             "toggle_background_color": "#d80000",
             "toggle_text_color": "#ffffff",
-            "block_border_color": "#f2d8c8",
             "tag_border_color": "#f2d8c8",
-            "block_radius": 40,
-            "tag_radius": 40,
-            "block_padding_top": 10,
-            "block_padding_bottom": 10,
-            "block_padding_left_right": 10,
-            "tag_gap": 8
+            "margin_top": 0,
+            "margin_bottom": 0
           }
         },
         "variant_picker": {
