@@ -592,6 +592,62 @@
         "animations": "inherit"
       }
     },
+    "collection_list_wgFUjX": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_block_RPJXMF": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "diy-tools",
+            "title": "Sticker Tool Collection",
+            "item_image": "shopify://shop_images/O1CN01XddSX91DxfDkqR59x__2219643570283-0-cib.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_RPJXMF"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "Helper Tools",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "header_alignment": "left",
+        "color_scheme": "badge-new",
+        "container": "container-fluid",
+        "layout": "grid",
+        "expanded": true,
+        "card_style": "standard",
+        "text_alignment": "center",
+        "hover_effect": "scaling-up",
+        "show_product_count": false,
+        "count_inline_title": false,
+        "image_rounded": false,
+        "image_aspect_ratio": "4/3",
+        "image_height": 360,
+        "image_height_mobile": 260,
+        "image_object_fit": "cover",
+        "items_per_row": 4,
+        "item_gap": 35,
+        "enable_slider": true,
+        "show_pagination": false,
+        "show_navigation": true,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": false,
+        "mobile_gap": 16,
+        "hidden_slide_control_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "testimonials_pnyUnX": {
       "type": "testimonials",
       "blocks": {
@@ -873,6 +929,7 @@
     "collection_list_tjXYY7",
     "custom_content_CrCarK",
     "collection_list_8zY3CG",
+    "collection_list_wgFUjX",
     "testimonials_pnyUnX",
     "gallery_LXcceh",
     "16225125199f82d8fe"
